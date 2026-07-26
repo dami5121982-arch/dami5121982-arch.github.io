@@ -872,3 +872,10 @@ html[lang="ar"] header {
     height: auto !important;
     flex-shrink: 0 !important; /* Prohíbe que el portafolio la aplaste */
 }
+/* ==========================================================
+14. REPARACIÓN EXCLUSIVA: FORZAR SCROLL EN LA BARRA LATERAL
+========================================================== */
+.sidebar {
+    overflow-y: auto !important; /* Activa la barra de scroll vertical solo si el contenido no cabe */
+    overflow-x: hidden !important; /* Evita que aparezca un scroll horizontal feo */
+}
