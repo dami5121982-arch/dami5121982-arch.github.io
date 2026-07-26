@@ -1,4 +1,6 @@
-﻿// 1. CONTROL DE PESTAÑAS (BOTONES AZULES SUPERIORES)
+﻿//===================================================
+// 1. CONTROL DE PESTAÑAS (BOTONES AZULES SUPERIORES)
+//===================================================
 function openTab(tabId, buttonClicked) {
     // Oculta todos los bloques de contenido
     document.querySelectorAll('.tab-content').forEach(content => {
@@ -21,9 +23,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (firstBtn) firstBtn.click();
 });
 
-// ==========================================
+// =========================================================
 // 2. CONTROL DE MODO CLARO / OSCURO (CORREGIDO PARA ICONOS)
-// ==========================================
+// =========================================================
 const themeBtn = document.getElementById('themeBtn');
 
 themeBtn.addEventListener('click', () => {
@@ -37,8 +39,9 @@ themeBtn.addEventListener('click', () => {
         // SE ELIMINA EL TEXTCONTENT PARA PROTEGER LOS ICONOS SVG
     }
 });
-
+// ===================================
 // 3. FILTRADO INTERACTIVO DE TRABAJOS
+// ===================================
 function filterJobs(category, button) {
     document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
     button.classList.add('active');
@@ -51,8 +54,9 @@ function filterJobs(category, button) {
         }
     });
 }
-
+// ======================================
 // 4. BUSCADOR INTERACTIVO EN TIEMPO REAL
+// ======================================
 const searchInput = document.getElementById('searchSoftware');
 // Usamos event delegation o validación por si el buscador está oculto en otra pestaña
 if (searchInput) {
@@ -68,7 +72,9 @@ if (searchInput) {
         });
     });
 }
-// FUNCIÓN PARA FILTRAR TUS ESTUDIOS (UNIVERSIDAD / TÉCNICA / OTROS)
+// ====================================================================
+// 5. FUNCIÓN PARA FILTRAR TUS ESTUDIOS (UNIVERSIDAD / TÉCNICA / OTROS)
+// ====================================================================
 function filterEdus(category, button) {
     // Quita el estado activo de los botones de la sección de educación
     document.querySelectorAll('#educacion .filter-btn').forEach(btn => {
@@ -119,7 +125,9 @@ function filterTech(category, button) {
         }
     });
 }
-// FUNCIÓN COMODÍN PARA CAMBIAR EL IDIOMA DE LA PÁGINA
+// ======================================================
+// 6. FUNCIÓN COMODÍN PARA CAMBIAR EL IDIOMA DE LA PÁGINA
+// ======================================================
 function changeLanguage(lang) {
     // Ajuste de dirección de lectura (esencial para Árabe)
     document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
