@@ -63,6 +63,10 @@ body {
 .main-col {
     padding: 5px 5%;
     position: relative;
+    /* === CORRECCIÓN PARA QUE LA PARTE PRINCIPAL NO SE QUEDE FIJA === */
+    height: calc(100vh - 128px) !important; /* Mismo alto protector que la barra lateral */
+    overflow-y: auto !important; /* Activa el scroll independiente a la derecha */
+    overflow-x: hidden !important; /* Bloquea desplazamientos laterales feos */
 }
 
 h2 {
