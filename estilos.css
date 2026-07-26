@@ -866,16 +866,11 @@ html[lang="ar"] header {
     align-items: start !important; /* Mantiene el perfil arriba fijo */
 }
 
-/* Evitar colapsos en la barra lateral al reproducir el vídeo */
+/* Evitar colapsos y forzar barra de scroll vertical en la barra lateral */
 .sidebar {
+    height: calc(100vh - 128px) !important; /* Forza a la barra a medir exactamente el alto de la pantalla */
     min-height: calc(100vh - 128px) !important;
-    height: auto !important;
+    overflow-y: auto !important; /* Activa el scroll vertical si el contenido no cabe */
+    overflow-x: hidden !important; /* Bloquea desplazamientos horizontales */
     flex-shrink: 0 !important; /* Prohíbe que el portafolio la aplaste */
-}
-/* ==========================================================
-14. REPARACIÓN EXCLUSIVA: FORZAR SCROLL EN LA BARRA LATERAL
-========================================================== */
-.sidebar {
-    overflow-y: auto !important; /* Activa la barra de scroll vertical solo si el contenido no cabe */
-    overflow-x: hidden !important; /* Evita que aparezca un scroll horizontal feo */
 }
