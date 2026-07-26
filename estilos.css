@@ -874,3 +874,12 @@ html[lang="ar"] header {
     overflow-x: hidden !important; /* Bloquea desplazamientos horizontales */
     flex-shrink: 0 !important; /* Prohíbe que el portafolio la aplaste */
 }
+/* Blindaje final de scroll exclusivo para servidores en la nube */
+.container, body, html {
+    overflow-x: hidden; /* Evita que la página baile hacia los lados en internet */
+}
+
+.sidebar {
+    position: -webkit-sticky !important; /* Compatibilidad total con navegadores web móviles e internet */
+    position: sticky !important;
+}
