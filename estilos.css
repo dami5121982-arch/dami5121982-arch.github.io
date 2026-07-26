@@ -1,0 +1,874 @@
+﻿/* ==========================================================
+1. VARIABLES DE TEMA (MODO CLARO / MODO OSCURO)
+========================================================== */
+:root {
+    --bg-color: #f4f7f6; /* Fondo gris claro general */
+    --card-bg: #ffffff; /* Fondo blanco puro para las tarjetas */
+    --text-color: #333333; /* Texto principal oscuro */
+    --text-light: #718096; /* Texto secundario atenuado */
+    --primary: #1a365d; /* Azul marino institucional */
+    --secondary: #2b6cb0; /* Azul corporativo para resaltados y bordes */
+    --sidebar-bg: #f7fafc; /* Fondo de la barra lateral izquierda */
+    --border-color: #cbd5e0; /* Gris suave para los marcos de tarjetas */
+    --badge-bg: #e2e8f0; /* Fondo gris para las etiquetas y botones */
+    --badge-text: #2d3748; /* Texto interno de etiquetas */
+}
+
+[data-theme="dark"] {
+    --bg-color: #1a202c; /* Fondo oscuro general */
+    --card-bg: #2d3748; /* Tarjetas gris carbón */
+    --text-color: #f7fafc; /* Texto claro */
+    --text-light: #a0aec0; /* Texto secundario claro */
+    --primary: #90cdf4; /* Azul claro brillante */
+    --secondary: #4299e1; /* Azul vivo para resaltados */
+    --sidebar-bg: #1a202c; /* Barra lateral oscura */
+    --border-color: #4a5568; /* Bordes oscuros integrados */
+    --badge-bg: #4a5568; /* Etiquetas en modo oscuro */
+    --badge-text: #feebc8; /* Texto de etiquetas resaltado */
+}
+
+/* ==========================================================
+2. REGLAS GENERALES Y CONFIGURACIÓN DEL CUERPO
+========================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body {
+    font-family: "Myriad Pro", Myriad, "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.5;
+    min-height: 100vh;
+}
+
+/* ==========================================================
+3. ARQUITECTURA DE CONTENEDORES Y DISTRIBUCIÓN
+========================================================== */
+.container {
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    min-height: 100vh;
+    background: var(--bg-color);
+    display: grid;
+    grid-template-columns: 320px 1fr; /* Blinda la columna de perfil a 320px fijos para que nunca desaparezca */
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.05);
+    align-items: start; /* Impide el estiramiento infinito de la barra lateral */
+}
+
+.main-col {
+    padding: 5px 5%;
+    position: relative;
+}
+
+h2 {
+    font-size: 1.5rem;
+    color: var(--primary);
+    border-bottom: 2px solid var(--secondary);
+    padding-bottom: 5px;
+    margin: 30px 0 20px 0;
+    text-transform: uppercase;
+}
+
+h3 {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    margin-bottom: 2px;
+}
+/* ==========================================================
+4. ENCABEZADO PANORÁMICO FIJO COMPACTO
+========================================================== */
+header {
+    grid-column: span 2;
+    width: 100%;
+    background-color: #1a365d;
+    color: white;
+    padding: 8px 5% !important;
+    border-bottom: 4px solid var(--secondary);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Foto a la izquierda, controles a la derecha */
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.05) 60%), url('img/header-bg.png');
+    background-size: cover;
+    background-position: center 65%;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+    header h1 {
+        font-size: 2.2rem;
+        font-weight: 600;
+        margin-bottom: 3px;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.95), 0 0 25px rgba(0, 0, 0, 0.6);
+        position: relative;
+        z-index: 2;
+    }
+
+.header-text-group {
+    text-align: right;
+    margin-right: 80px !important; /* Margen protector contra colisiones de botones */
+}
+
+header p {
+    font-size: 1.05rem;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.95), 0 0 15px rgba(0, 0, 0, 0.6);
+    position: relative;
+    z-index: 2;
+}
+
+/* --- CONTENEDOR REDONDO DE TU FOTO DE PERFIL --- */
+.header-avatar {
+    width: 110px !important;
+    height: 110px !important;
+    border-radius: 50% !important;
+    border: 3.5px solid white !important;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.4) !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    display: block !important;
+    transition: transform 0.3s ease;
+}
+
+    .header-avatar img {
+        width: 100% !important;
+        height: 100% !important;
+        display: block !important;
+        object-fit: cover !important;
+        object-position: center !important;
+    }
+
+    .header-avatar:hover {
+        transform: scale(1.04);
+    }
+
+/* ==========================================================
+5. INTERFAZ INTERACTIVA: BOTÓN DE CONTROL CLARO / OSCURO
+========================================================== */
+.theme-toggle {
+    position: absolute;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    right: 2% !important;
+    background: var(--secondary);
+    color: white;
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 103;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+    .theme-toggle:hover {
+        background-color: #4299e1;
+        transform: translateY(-50%) scale(1.08) !important;
+    }
+
+    .theme-toggle svg {
+        width: 18px;
+        height: 18px;
+        pointer-events: none;
+    }
+
+    .theme-toggle .sun-icon {
+        display: none;
+    }
+
+    .theme-toggle .moon-icon {
+        display: block;
+    }
+
+[data-theme="dark"] .theme-toggle {
+    background: #1a202c;
+    color: #f1c40f; /* Sol amarillo brillante */
+    border-color: #f1c40f;
+}
+
+    [data-theme="dark"] .theme-toggle .sun-icon {
+        display: block;
+    }
+
+    [data-theme="dark"] .theme-toggle .moon-icon {
+        display: none;
+    }
+
+/* ==========================================================
+6. ANCLAJE INTELIGENTE DE LA BARRA LATERAL (SCROLL STICKY)
+========================================================== */
+.sidebar {
+    padding: 20px 5% 15px 5% !important;
+    background-color: var(--sidebar-bg);
+    border-right: 1px solid var(--border-color);
+    border-left: none !important;
+    overflow-y: auto;
+    position: sticky;
+    top: 118px !important; /* Clavado equilibrado bajo la franja de botones */
+    margin-top: 0px !important;
+    /* 1. Corrección elástica que evita colapsos */
+    min-height: calc(100vh - 128px) !important;
+    height: auto !important;
+    flex-shrink: 0 !important;
+    /* 2. Blindaje acelerado por hardware: Aísla la barra de la reproducción de vídeos */
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    will-change: transform;
+}
+
+    .sidebar > *:first-child {
+        margin-top: 0 !important;
+    }
+/* ==========================================================
+7. MENÚS DE NAVEGACIÓN Y BOTONES FIJOS DE PESTAÑAS
+========================================================== */
+.tabs-nav {
+    display: flex;
+    gap: 35px;
+    width: 100%;
+    margin-top: 0px;
+    margin-bottom: 30px;
+    padding: 25px 0 15px 0 !important;
+    position: sticky;
+    top: 118px !important; /* Separación estricta con el encabezado durante scroll */
+    z-index: 90;
+    background-color: var(--bg-color) !important;
+    transition: background-color 0.3s;
+}
+
+.tab-btn {
+    flex: 1;
+    background-color: var(--badge-bg);
+    color: var(--text-color);
+    border: 2px solid var(--border-color);
+    padding: 10px 6px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+    .tab-btn:hover {
+        background-color: #e2e8f0;
+        border-color: var(--secondary);
+        transform: translateY(-2px);
+    }
+
+    .tab-btn.active {
+        background-color: var(--secondary);
+        color: #ffffff;
+        border-color: var(--secondary);
+        box-shadow: 0 4px 12px rgba(43, 108, 176, 0.3);
+    }
+
+/* ==========================================================
+8. CONTENEDORES INTERNOS Y ANIMACIONES DE TARJETAS
+========================================================== */
+.tab-content {
+    background-color: transparent;
+    display: none;
+    animation: fadeIn 0.4s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.filter-container {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: var(--badge-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+    .filter-btn.active {
+        background: var(--secondary);
+        color: white;
+        border-color: var(--secondary);
+    }
+
+.date-place {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    font-style: italic;
+    margin-top: 5px;
+    word-wrap: break-word;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* --- MAQUETACIÓN PANORÁMICA DE TARJETAS COMPACTAS --- */
+.job, .edu, .tech {
+    background-color: var(--card-bg);
+    border: 3px solid var(--border-color);
+    border-radius: 16px;
+    margin-bottom: 20px;
+    padding: 14px 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+    /* --- CAPA INYECTADA DE IMAGEN DIFUMINADA --- */
+    .job::before, .edu::before, .tech::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: var(--card-bg-img);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        filter: grayscale(80%) blur(2px);
+        opacity: 0.25;
+        transform: scale(1.05);
+        z-index: -1;
+        transition: transform 0.4s ease, opacity 0.4s ease, filter 0.4s ease;
+    }
+
+    .job:hover, .edu:hover, .tech:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        border-color: var(--secondary);
+    }
+
+    .job::before {
+        filter: grayscale(20%) blur(1px) !important;
+        opacity: 0.35 !important;
+    }
+
+    .job:hover::before {
+        filter: grayscale(0%) blur(0px) !important;
+        opacity: 0.45 !important;
+    }
+
+    .job h3, .job .date-place {
+        text-shadow: 0 2px 4px var(--card-bg), 0 0 10px var(--card-bg);
+        position: relative;
+        z-index: 2;
+    }
+
+    .edu::before {
+        filter: grayscale(20%) blur(1px) !important;
+        opacity: 0.35 !important;
+    }
+
+    .edu:hover::before {
+        filter: grayscale(0%) blur(0px) !important;
+        opacity: 0.45 !important;
+    }
+
+    .edu h3, .edu .date-place {
+        text-shadow: 0 2px 4px var(--card-bg), 0 0 10px var(--card-bg);
+        position: relative;
+        z-index: 2;
+    }
+/* ==========================================================
+9. SECCIONES ESPECIALES (INFORMÁTICA, PDFS E IOT)
+========================================================== */
+.tech-grid {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    gap: 10px 20px;
+    font-size: 0.95rem;
+    background-color: var(--card-bg);
+    padding: 16px 20px;
+    border: 3px solid var(--border-color);
+    border-radius: 16px;
+}
+
+.tech-logos {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+}
+
+.logo-empresa, .logo-edu {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    background-color: transparent;
+    border: none;
+    flex-shrink: 0;
+}
+
+.tech-logos .logo-edu {
+    width: 75px !important;
+    height: 75px !important;
+    margin: 5px;
+    transition: transform 0.3s ease;
+}
+
+    .tech-logos .logo-edu:hover {
+        transform: scale(1.15);
+        filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
+    }
+
+.tech-logos img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    background-color: transparent;
+    mix-blend-mode: multiply;
+}
+
+[data-theme="dark"] .tech-logos img {
+    mix-blend-mode: normal;
+    filter: brightness(0.9) contrast(1.1);
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 4px;
+    border-radius: 8px;
+}
+
+/* --- REJILLAS DE BOTONES DE DESCARGA PDF --- */
+.pdf-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+    margin-top: 15px !important;
+    width: 100% !important;
+}
+
+.pdf-btn-item {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 14px !important;
+    background-color: var(--badge-bg);
+    color: var(--text-color);
+    border: 2px solid var(--border-color);
+    padding: 10px 16px !important;
+    border-radius: 10px;
+    text-decoration: none;
+    height: auto !important;
+    transition: all 0.25s ease;
+}
+
+    .pdf-btn-item:hover {
+        background-color: var(--secondary);
+        color: #ffffff !important;
+        border-color: var(--secondary);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    }
+
+        .pdf-btn-item:hover .pdf-desc-doc, .pdf-btn-item:hover .pdf-title-doc {
+            color: #ffffff !important;
+        }
+
+.pdf-text-info {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2px !important;
+    text-align: left !important;
+}
+
+.pdf-title-doc {
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
+.pdf-desc-doc {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+/* --- GALERÍA CULTIVO IOT (PROYECTO 3) --- */
+.project-gallery {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 12px !important;
+    margin: 15px 0 !important;
+    width: 100% !important;
+}
+
+.gallery-item {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    background-color: var(--badge-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    padding: 8px !important;
+    height: auto !important;
+}
+
+    .gallery-item img {
+        width: 100% !important;
+        height: 110px !important;
+        object-fit: contain !important;
+        border-radius: 6px;
+        background-color: #ffffff;
+        padding: 4px;
+    }
+
+    .gallery-item span {
+        font-size: 0.8rem;
+        font-weight: 700;
+        margin-top: 6px;
+        color: var(--text-color);
+    }
+
+.project-status-box {
+    background-color: rgba(43, 108, 176, 0.08) !important;
+    border-left: 4px solid var(--secondary);
+    padding: 12px 16px !important;
+    border-radius: 0 10px 10px 0;
+    margin-top: 10px !important;
+    height: auto !important;
+}
+
+    .project-status-box h4 {
+        color: var(--secondary);
+        font-size: 0.95rem;
+        font-weight: 700;
+        margin-bottom: 4px;
+    }
+
+    .project-status-box p {
+        font-size: 0.85rem !important;
+        line-height: 1.5;
+        margin: 0 !important;
+    }
+/* ==========================================================
+10. ESTRUCTURA DE LA BARRA LATERAL (SOFT SKILLS / CONTACTO)
+========================================================== */
+.profile-about-sidebar p {
+    font-size: 0.95rem;
+    color: var(--text-color);
+    line-height: 1.6;
+    text-align: center;
+    font-weight: bold;
+}
+
+.sidebar-card {
+    background-color: #eef2f7 !important;
+    border: 3px solid var(--border-color);
+    border-radius: 16px;
+    padding: 22px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+[data-theme="dark"] .sidebar-card {
+    background-color: #243144 !important;
+}
+
+.sidebar-card .badge-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    list-style: none;
+    padding: 0;
+    width: 100%;
+}
+
+    .sidebar-card .badge-list li {
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        font-size: 0.95rem;
+        font-weight: bold;
+        color: var(--text-color);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        gap: 6px;
+        transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+        .sidebar-card .badge-list li:hover {
+            transform: translateY(-4px);
+            color: var(--secondary);
+        }
+
+.sidebar-card .skill-icon {
+    width: 80px !important;
+    height: 80px !important;
+    object-fit: contain;
+    margin-right: 0 !important;
+    filter: drop-shadow(0 2px 6px rgba(0,0,0,0.06));
+    transition: transform 0.3s ease;
+}
+
+.sidebar-card .badge-list li:hover .skill-icon {
+    transform: scale(1.08);
+}
+
+.sidebar-card h2 {
+    font-size: 1.3rem;
+    color: var(--primary);
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.sidebar-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    border-color: var(--secondary);
+}
+
+.contact-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    width: 100%;
+}
+
+    .contact-list li {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-align: center;
+        width: 100%;
+    }
+
+.contact-img-icon {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    border-radius: 4px;
+    transition: transform 0.2s ease;
+}
+
+.contact-list a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.contact-list li:hover .contact-img-icon {
+    transform: scale(1.1);
+}
+
+.contact-list li:hover a {
+    color: var(--secondary);
+}
+
+.languages-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    list-style: none;
+    padding: 0;
+    width: 100%;
+}
+
+    .languages-list li {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        text-align: center;
+        transition: transform 0.2s ease, color 0.2s ease;
+    }
+
+        .languages-list li:hover {
+            transform: scale(1.03) translateY(-2px);
+            color: var(--secondary);
+        }
+
+.flag-ring {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3px;
+    flex-shrink: 0;
+    transition: filter 0.2s ease;
+}
+
+.languages-list li:hover .flag-ring {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.08));
+}
+
+.flag-ring.lvl-1 {
+    background: conic-gradient( #ef4444 0deg 86deg, var(--card-bg) 86deg 94deg, var(--badge-bg) 94deg 176deg, var(--card-bg) 176deg 184deg, var(--badge-bg) 184deg 266deg, var(--card-bg) 266deg 274deg, var(--badge-bg) 274deg 356deg, var(--card-bg) 356deg 360deg );
+}
+
+.flag-ring.lvl-2 {
+    background: conic-gradient( #ef4444 0deg 86deg, var(--card-bg) 86deg 94deg, #f97316 94deg 176deg, var(--card-bg) 176deg 184deg, var(--badge-bg) 184deg 266deg, var(--card-bg) 266deg 274deg, var(--badge-bg) 274deg 356deg, var(--card-bg) 356deg 360deg );
+}
+
+.flag-ring.lvl-3 {
+    background: conic-gradient( #ef4444 0deg 86deg, var(--card-bg) 86deg 94deg, #f97316 94deg 176deg, var(--card-bg) 176deg 184deg, #eab308 184deg 266deg, var(--card-bg) 266deg 274deg, var(--badge-bg) 274deg 356deg, var(--card-bg) 356deg 360deg );
+}
+
+.flag-ring.lvl-4 {
+    background: conic-gradient( #ef4444 0deg 86deg, var(--card-bg) 86deg 94deg, #f97316 94deg 176deg, var(--card-bg) 176deg 184deg, #eab308 184deg 266deg, var(--card-bg) 266deg 274deg, #22c55e 274deg 356deg, var(--card-bg) 356deg 360deg );
+}
+
+.languages-list .flag-icon {
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: none !important;
+    margin: 0 !important;
+    background-color: var(--card-bg);
+}
+
+/* ==========================================================
+11. ADAPTACIÓN PARA PANTALLAS MÓVILES (RESPONSIVE)
+========================================================== */
+@media (max-width: 900px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .main-col {
+        order: 1;
+    }
+
+    .sidebar {
+        order: 2;
+        border-right: none;
+        border-top: 1px solid var(--border-color);
+        position: static;
+        height: auto;
+    }
+
+    .tabs-nav {
+        flex-direction: column;
+        gap: 10px;
+        position: static;
+    }
+
+    header {
+        grid-column: span 1;
+        position: static;
+    }
+}
+
+@media (max-width: 768px) {
+    .pdf-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .project-gallery {
+        grid-template-columns: 1fr !important;
+        gap: 10px !important;
+    }
+
+    .gallery-item img {
+        height: 140px !important;
+    }
+}
+/* ==========================================================
+12. UNIFORMIDAD ABSOLUTA: BLOQUEO DE ENCABEZADO EN IDIOMA ÁRABE
+========================================================== */
+html[lang="ar"] header {
+    direction: ltr !important; /* Fuerza la lectura normal de izquierda a derecha en la cabecera */
+    text-align: left !important; /* Mantiene las alineaciones nativas de tus textos */
+}
+
+    /* Anulamos de forma absoluta cualquier desplazamiento artificial en los hijos */
+    html[lang="ar"] header .header-avatar,
+    html[lang="ar"] header h1,
+    html[lang="ar"] header #langSelect,
+    html[lang="ar"] header #themeBtn,
+    html[lang="ar"] header .header-text-group,
+    html[lang="ar"] header .header-controls {
+        position: static !important; /* Devuelve los elementos a su caja y flujo de diseño original */
+        transform: none !important; /* Elimina traslaciones y amontonamientos */
+        margin: revert !important; /* Recupera los márgenes originales exactos de tus estilos */
+    }
+
+/* ==========================================================
+13. CORRECCIÓN: REPRODUCTOR COMPACTO Y BLINDAJE DE BARRA
+========================================================== */
+/* Crear la regla del vídeo para hacerlo más pequeño y centrado */
+.project-video {
+    width: 60% !important; /* Lo estrecha al 60% del ancho de la pantalla */
+    max-width: 650px !important; /* Evita que se haga gigante */
+    aspect-ratio: 16 / 9; /* Mantiene proporción HD */
+    max-height: 320px !important; /* Altura compacta */
+    margin: 20px auto 10px auto !important; /* Lo centra en el medio de la tarjeta */
+    display: block !important; /* Activa el centrado automático */
+    border-radius: 12px;
+    border: 2px solid var(--border-color);
+    background-color: #000000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Fijar el contenedor para que la barra de perfil no se oculte nunca */
+.container {
+    grid-template-columns: 320px 1fr !important; /* Bloquea el lateral a 320px fijos */
+    align-items: start !important; /* Mantiene el perfil arriba fijo */
+}
+
+/* Evitar colapsos en la barra lateral al reproducir el vídeo */
+.sidebar {
+    min-height: calc(100vh - 128px) !important;
+    height: auto !important;
+    flex-shrink: 0 !important; /* Prohíbe que el portafolio la aplaste */
+}
