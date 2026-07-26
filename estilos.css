@@ -887,3 +887,12 @@ html[lang="ar"] header {
     position: -webkit-sticky !important; /* Compatibilidad total con navegadores web móviles e internet */
     position: sticky !important;
 }
+/* ==========================================================
+15. ADAPTACIÓN DE BORDES PARA EL REPRODUCTOR DE YOUTUBE
+========================================================== */
+iframe.project-video {
+    border: 2px solid var(--border-color) !important;
+    background-color: #000000 !important;
+    border-radius: 12px !important; /* Forza al iframe a redondear sus esquinas */
+    overflow: hidden !important;
+}
