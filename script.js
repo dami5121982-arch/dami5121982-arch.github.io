@@ -405,7 +405,7 @@ const eduTranslations = {
         edu1_title: "Expert in Renewable Energies and Energy Efficiency",
         edu2_title: "Agricultural Technical Engineering, specializing in Agricultural and Livestock Operations",
         edu3_title: "Higher Technical Degree in Self-Propelled Vehicle Maintenance",
-        edu4_title: "Bachelor's Degree in Mathematics (Completed coursework)",
+        edu4_title: "Bachelor's Degree in Mathematics",
         edu5_title: "High School Diploma in Health Sciences",
         edu6_title: "Compulsory Secondary Education",
         edu7_title: "Primary Education"
@@ -414,7 +414,7 @@ const eduTranslations = {
         edu1_title: "Esperto in Energie Rinnovabili e Efficienza Energetica",
         edu2_title: "Laurea Triennale in Ingegneria Agraria, spec. Aziende Agricole e Zootecniche",
         edu3_title: "Tecnico Superiore nella Manutenzione di Veicoli Autopropulsi",
-        edu4_title: "Laurea Magistrale in Matematica (Frequenza)",
+        edu4_title: "Laurea Magistrale in Matematica",
         edu5_title: "Diploma di Scuola Superiore in Scienze della Salute",
         edu6_title: "Istruzione Secondaria Obbligatoria",
         edu7_title: "Istruzione Primaria"
@@ -423,7 +423,7 @@ const eduTranslations = {
         edu1_title: "Expert en Énergies Renouvelables et Efficacité Énergétique",
         edu2_title: "Licence en Ingénierie Agricole, spéc. Exploitations Agricoles et Élevages",
         edu3_title: "Technicien Supérieur en Maintenance des Véhicules Automoteurs",
-        edu4_title: "Licence/Maîtrise en Mathématiques (Cursus)",
+        edu4_title: "Licence/Maîtrise en Mathématiques",
         edu5_title: "Baccalauréat en Sciences de la Santé",
         edu6_title: "Enseignement Secondaire Obligatoire",
         edu7_title: "Enseignement Primaire"
@@ -432,7 +432,7 @@ const eduTranslations = {
         edu1_title: "Especialista em Energias Renováveis e Eficiência Energética",
         edu2_title: "Engenharia Técnica Agrícola, esp. Explorações Agropecuárias",
         edu3_title: "Técnico Superior em Manutenção de Veículos Automotores",
-        edu4_title: "Licenciatura em Matemática (Concluído)",
+        edu4_title: "Licenciatura em Matemática",
         edu5_title: "Ensino Médio Técnico em Ciências da Saúde",
         edu6_title: "Ensino Secundário Obrigatório",
         edu7_title: "Ensino Fundamental"
@@ -441,7 +441,7 @@ const eduTranslations = {
         edu1_title: "Experte für Erneuerbare Energien und Energieeffizienz",
         edu2_title: "Diplom-Agraringenieur (FH), Fachrichtung Landwirtschaftliche Betriebe",
         edu3_title: "Staatlich geprüfter Techniker für Kraftfahrzeugtechnik",
-        edu4_title: "Bachelor-Studium in Mathematik (Abschnitt)",
+        edu4_title: "Bachelor-Studium in Mathematik",
         edu5_title: "Abitur mit Schwerpunkt Gesundheitswissenschaften",
         edu6_title: "Realschulabschluss / Sekundarstufe I",
         edu7_title: "Grundschule"
@@ -450,7 +450,7 @@ const eduTranslations = {
         edu1_title: "可再生能源与建筑能效专家学位",
         edu2_title: "农业技术工程学士（专注于农牧场经营管理）",
         edu3_title: "自驱式车辆维护与检修高级技术员",
-        edu4_title: "数学专业本科（结业）",
+        edu4_title: "数学专业本科",
         edu5_title: "健康科学方向高中/预科文凭",
         edu6_title: "义务教育阶段初中",
         edu7_title: "小学教育"
@@ -459,7 +459,7 @@ const eduTranslations = {
         edu1_title: "خبير في الطاقات المتجددة وكفاءة الطاقة",
         edu2_title: "الهندسة التقنية الزراعية، تخصص إدارة المزارع والإنتاج الحيواني",
         edu3_title: "فني عالي في صيانة مركبات الدفع الذاتي",
-        edu4_title: "بكالوريوس في الرياضيات (مستكمل الفصول)",
+        edu4_title: "درجة البكالوريوس في العلوم الرياضية",
         edu5_title: "شهادة البكالوريا في العلوم الصحية",
         edu6_title: "التعليم الثانوي الإلزامي",
         edu7_title: "التعليم الابتدائي"
