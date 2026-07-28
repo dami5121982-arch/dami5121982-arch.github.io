@@ -886,3 +886,4 @@ html[lang="ar"] header {
 .sidebar {
     position: -webkit-sticky !important; /* Compatibilidad total con navegadores web móviles e internet */
     position: sticky !important;
+}
