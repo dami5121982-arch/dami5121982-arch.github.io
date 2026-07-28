@@ -782,32 +782,80 @@ header p {
 11. ADAPTACIÓN PARA PANTALLAS MÓVILES (RESPONSIVE)
 ========================================================== */
 @media (max-width: 900px) {
+    /* Destruye las dos columnas fijas y fuerza una sola columna */
     .container {
-        display: flex;
-        flex-direction: column;
+        grid-template-columns: 1fr !important;
+        display: flex !important;
+        flex-direction: column !important;
+        height: auto !important;
     }
 
+    /* Corrige el alto bloqueado para que la página crezca de forma natural */
     .main-col {
         order: 1;
+        height: auto !important;
+        overflow-y: visible !important;
+        padding: 10px 4% !important;
     }
 
+    /* Pasa el perfil abajo de los contenidos principales o viceversa */
     .sidebar {
         order: 2;
-        border-right: none;
-        border-top: 1px solid var(--border-color);
-        position: static;
-        height: auto;
+        width: 100% !important;
+        height: auto !important;
+        min-height: revert !important;
+        position: static !important; /* Desactiva el sticky que lo rompía en móvil */
+        border-right: none !important;
+        border-top: 1px solid var(--border-color) !important;
+        padding: 30px 4% 20px 4% !important;
     }
-
+}
+@media (max-width: 900px) {
     .tabs-nav {
-        flex-direction: column;
-        gap: 10px;
-        position: static;
+        flex-direction: row !important; /* Mantiene la distribución horizontal */
+        flex-wrap: wrap !important; /* Si no caben, bajan de línea limpiamente */
+        gap: 8px !important;
+        position: sticky !important;
+        top: 0px !important; /* Se clavan al techo al hacer scroll */
+        padding: 10px 4% !important;
+        width: calc(100% + 8%) !important;
+        margin-left: -4% !important;
+        margin-right: -4% !important;
     }
 
+    .tab-btn {
+        flex: 1 1 calc(50% - 8px); /* Organiza los botones en parejas de 2x2 */
+        font-size: 0.85rem !important;
+        padding: 12px 6px !important;
+    }
+}
+@media (max-width: 900px) {
     header {
-        grid-column: span 1;
-        position: static;
+        grid-column: span 1 !important;
+        flex-direction: column !important; /* Foto arriba, texto al centro */
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 15px !important;
+        padding: 20px 4% 80px 4% !important; /* Espacio abajo para los controles */
+        text-align: center !important;
+    }
+
+    .header-text-group {
+        text-align: center !important;
+        margin-right: 0px !important; /* Elimina el choque lateral */
+    }
+
+    header h1 {
+        font-size: 1.6rem !important; /* Achica el título para pantallas chicas */
+    }
+
+    /* Centra de manera limpia el selector de idiomas y cambio de color abajo del todo */
+    .header-controls {
+        position: absolute !important;
+        bottom: 15px !important;
+        right: 50% !important;
+        top: auto !important;
+        transform: translateX(50%) !important;
     }
 }
 
@@ -827,6 +875,13 @@ header p {
         height: 140px !important;
     }
 }
+@media (max-width: 600px) {
+    .project-video {
+        width: 100% !important; /* Aprovecha el ancho completo del dispositivo */
+        max-height: 220px !important;
+    }
+}
+
 /* ==========================================================
 12. UNIFORMIDAD ABSOLUTA: BLOQUEO DE ENCABEZADO EN IDIOMA ÁRABE
 ========================================================== */
