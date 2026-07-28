@@ -1071,3 +1071,35 @@ iframe.project-video {
     }
 }
 
+@media (max-width: 900px) {
+    /* Fuerza al contenedor a empujar el footer al fondo */
+    .container {
+        display: flex !important;
+        flex-direction: column !important;
+        min-height: 100vh !important;
+        height: auto !important;
+    }
+
+    /* Asegura el orden correcto de los tres bloques principales */
+    header {
+        order: 1 !important;
+    }
+
+    .main-col {
+        order: 2 !important;
+        flex-grow: 1 !important; /* Absorbe el espacio restante y empuja al footer */
+        height: auto !important;
+    }
+
+    .sidebar {
+        order: 3 !important; /* Coloca la barra de perfil debajo de los proyectos */
+        height: auto !important;
+    }
+
+    .main-footer-cv {
+        order: 4 !important; /* Envía el footer al final absoluto */
+        width: 100% !important;
+        position: relative !important;
+        margin-top: auto !important; /* Auto-ajuste magnético hacia el suelo de la web */
+    }
+}
