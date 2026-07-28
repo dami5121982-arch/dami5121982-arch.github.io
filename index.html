@@ -1,527 +1,516 @@
-﻿﻿
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CV Interactivo - Damián García Guerra</title>
     <link rel="stylesheet" href="estilos.css">
-    <!-- Google Tag Manager -->
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2FEE49JL1V"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'G-2FEE49JL1V');
-    </script>
-</head >
-                <body>
-                    <div class="container">
-                        <header>
-                            <!-- 1. Tu Foto de Perfil a la izquierda -->
-                            <img src="img/Dami.png" class="header-avatar" alt="Damián">
-                                <!-- 2. Tus datos personales empujados a la derecha -->
-                                <div class="header-text-group">
-                                    <h1>DAMIÁN GARCÍA GUERRA</h1>
-                                </div>
-                                <!-- Contenedor absoluto a la derecha para Controles -->
-                                <div class="header-controls" style="position: absolute; right: 2%; top: 50%; transform: translateY(-50%); display: flex; align-items: center; gap: 10px;">
-                                    <!-- SELECTOR DE IDIOMAS INTERACTIVO -->
-                                    <select id="langSelect" style="padding: 6px 10px; border-radius: 20px; border: 2px solid var(--border-color); background: var(--card-bg); color: var(--text-color); font-weight: bold; cursor: pointer; outline: none;">
-                                        <option value="es">ES</option>
-                                        <option value="en">EN</option>
-                                        <option value="it">IT</option>
-                                        <option value="fr">FR</option>
-                                        <option value="pt">PT</option>
-                                        <option value="de">DE</option>
-                                        <option value="zh">ZH</option>
-                                        <option value="ar">AR</option>
-                                    </select>
-                                    <!-- Botón de Modo Claro / Oscuro -->
-                                    <button class="theme-toggle" id="themeBtn" aria-label="Cambiar modo de color" style="position: static; transform: none;">
-                                        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-                                        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-                                    </button>
-                                </div>
-                        </header>
-                        <!-- COLUMNA LATERAL CON TARJETAS RECTANGULARES -->
-                        <aside class="sidebar" style="display: flex; flex-direction: column; gap: 20px;">
-                            <!-- Tarjeta 1: Perfil -->
-                            <div class="sidebar-card">
-                                <h2 data-i18n="title_perfil">Perfil</h2>
-                                <div class="profile-about-sidebar">
-                                    <p data-i18n="desc_perfil">Ingeniero Técnico con una sólida trayectoria que fusiona la gestión analítica, el dominio de software especializado y una profunda experiencia práctica en operaciones industriales. Especializado en optimizar procesos mediante un enfoque resolutivo y competencias multidisciplinares.</p>
-                                </div>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <!-- 1. Tu Foto de Perfil a la izquierda -->
+            <img src="img/Dami.png" class="header-avatar" alt="Damián">
+            <!-- 2. Tus datos personales empujados a la derecha -->
+            <div class="header-text-group">
+                <h1>DAMIÁN GARCÍA GUERRA</h1>
+            </div>
+            <!-- Contenedor absoluto a la derecha para Controles -->
+            <div class="header-controls" style="position: absolute; right: 2%; top: 50%; transform: translateY(-50%); display: flex; align-items: center; gap: 10px;">
+                <!-- SELECTOR DE IDIOMAS INTERACTIVO -->
+                <select id="langSelect" style="padding: 6px 10px; border-radius: 20px; border: 2px solid var(--border-color); background: var(--card-bg); color: var(--text-color); font-weight: bold; cursor: pointer; outline: none;">
+                    <option value="es">ES</option>
+                    <option value="en">EN</option>
+                    <option value="it">IT</option>
+                    <option value="fr">FR</option>
+                    <option value="pt">PT</option>
+                    <option value="de">DE</option>
+                    <option value="zh">ZH</option>
+                    <option value="ar">AR</option>
+                </select>
+                <!-- Botón de Modo Claro / Oscuro -->
+                <button class="theme-toggle" id="themeBtn" aria-label="Cambiar modo de color" style="position: static; transform: none;">
+                    <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                    <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                </button>
+            </div>
+        </header>
+        <!-- COLUMNA LATERAL CON TARJETAS RECTANGULARES -->
+        <aside class="sidebar" style="display: flex; flex-direction: column; gap: 20px;">
+            <!-- Tarjeta 1: Perfil -->
+            <div class="sidebar-card">
+                <h2 data-i18n="title_perfil">Perfil</h2>
+                <div class="profile-about-sidebar">
+                    <p data-i18n="desc_perfil">Ingeniero Técnico con una sólida trayectoria que fusiona la gestión analítica, el dominio de software especializado y una profunda experiencia práctica en operaciones industriales. Especializado en optimizar procesos mediante un enfoque resolutivo y competencias multidisciplinares.</p>
+                </div>
+            </div>
+            <!-- Tarjeta 2: Contacto -->
+            <div class="sidebar-card">
+                <h2 data-i18n="title_contacto">Contacto</h2>
+                <ul class="contact-list">
+                    <li>
+                        <img src="img/Contacto/tf.png" alt="Teléfono" class="contact-img-icon">
+                        <span>+34 691 345 389</span>
+                    </li>
+                    <li>
+                        <img src="img/Contacto/mail.png" alt="Email" class="contact-img-icon">
+                        <a href="mailto:dami5121982@gmail.com">dami5121982@gmail.com</a>
+                    </li>
+                    <li>
+                        <img src="img/Contacto/location.png" alt="Ubicación" class="contact-img-icon">
+                        <span>Ciudad Rodrigo, España</span>
+                    </li>
+                </ul>
+            </div>
+            <!-- Tarjeta 3: Idiomas con Sectores de Nivel -->
+            <div class="sidebar-card">
+                <h2 data-i18n="title_idiomas">Idiomas</h2>
+                <ul class="languages-list">
+                    <li>
+                        <div class="flag-ring lvl-4"><img src="img/idiomas/castellano.png" class="flag-icon" alt="ES"></div>
+                        <span data-i18n="lvl_native">Español (Competencia Nativa)</span>
+                    </li>
+                    <li>
+                        <div class="flag-ring lvl-3"><img src="img/idiomas/inglés.png" class="flag-icon" alt="EN"></div>
+                        <span data-i18n="lvl_professional">Inglés (Competencia Profesional)</span>
+                    </li>
+                    <li>
+                        <div class="flag-ring lvl-1"><img src="img/idiomas/frances.png" class="flag-icon" alt="FR"></div>
+                        <span data-i18n="lvl_elementary_fr">Francés (Competencia Elemental)</span>
+                    </li>
+                    <li>
+                        <div class="flag-ring lvl-1"><img src="img/idiomas/portugues.png" class="flag-icon" alt="PT"></div>
+                        <span data-i18n="lvl_elementary_pt">Portugués (Competencia Elemental)</span>
+                    </li>
+                </ul>
+            </div>
+            <!-- Tarjeta 4: Aptitudes -->
+            <div class="sidebar-card">
+                <h2 data-i18n="title_aptitudes">Aptitudes</h2>
+                <ul class="badge-list">
+                    <li><img src="img/aptitudes/resoluciondeproblemas.png" class="skill-icon" alt="P"> <span data-i18n="skill_problemas">Solución de problemas</span></li>
+                    <li><img src="img/aptitudes/pensamientoanalitico.png" class="skill-icon" alt="A"> <span data-i18n="skill_analitico">Pensamiento analítico</span></li>
+                    <li><img src="img/aptitudes/trabajoenequipo.png" class="skill-icon" alt="E"> <span data-i18n="skill_equipo">Trabajo en equipo</span></li>
+                    <li><img src="img/aptitudes/capacidadorganizativa.png" class="skill-icon" alt="O"> <span data-i18n="skill_organizacion">Organización</span></li>
+                    <li><img src="img/aptitudes/habilidadescomunicativas.png" class="skill-icon" alt="C"> <span data-i18n="skill_comunicacion">Comunicación</span></li>
+                    <li><img src="img/aptitudes/inteligenciaemocional.png" class="skill-icon" alt="Em"> <span data-i18n="skill_emocional">Inteligencia emocional</span></li>
+                    <li><img src="img/aptitudes/atencionadetalles.png" class="skill-icon" alt="D"> <span data-i18n="skill_detalle">Atención al detalle</span></li>
+                </ul>
+            </div>
+        </aside>
+        <!-- COLUMNA PRINCIPAL -->
+        <main class="main-col">
+            <!-- LOS CUATRO BOTONES AZULES PRINCIPALES -->
+            <div class="tabs-nav">
+                <button class="tab-btn active" onclick="openTab('experiencia', this)" data-i18n="tab_exp">Experiencia Profesional</button>
+                <button class="tab-btn" onclick="openTab('educacion', this)" data-i18n="tab_edu">Educación</button>
+                <button class="tab-btn" onclick="openTab('informatica', this)" data-i18n="tab_inf">Informática & Software</button>
+                <button class="tab-btn" onclick="openTab('portfolio', this)" data-i18n="tab_port">Portafolio Técnico</button>
+            </div>
+            <!-- CONTENIDO: EXPERIENCIA -->
+            <div id="experiencia" class="tab-content" style="display: block;">
+                <div class="filter-container">
+                    <button class="filter-btn active" onclick="filterJobs('all', this)" data-i18n="filter_all">Todos</button>
+                    <button class="filter-btn" onclick="filterJobs('operario', this)" data-i18n="filter_operario">Operario / Calidad</button>
+                    <button class="filter-btn" onclick="filterJobs('mecanico', this)" data-i18n="filter_mecanico">Mecánica / Automoción</button>
+                    <button class="filter-btn" onclick="filterJobs('otros', this)" data-i18n="filter_otros">Otros</button>
+                </div>
+                <div id="jobs-container">
+                    <!-- CARPENTER -->
+                    <div class="job" data-cat="operario" style="--card-bg-img: url('img/logosempresa/Tarjetastrabajo/rollos.jpeg');">
+                        <div class="job-header">
+                            <img src="img/logosempresa/carpenter.png" alt="Carpenter" class="logo-empresa">
+                            <h3 data-i18n="job1_title">Ayudante de corte de espuma PU y Operario de control de calidad</h3>
+                        </div>
+                        <div class="date-place" data-i18n="geo_carpenter">CARPENTER IBÉRICA, S.L.<br>06/2023 - Actualidad | Ciudad Rodrigo, España</div>
+                    </div>
+                    <!-- RECTICEL -->
+                    <div class="job" data-cat="operario" style="--card-bg-img: url('img/logosempresa/Tarjetastrabajo/rollos.jpeg');">
+                        <div class="job-header">
+                            <img src="img/logosempresa/recticel.png" alt="Recticel" class="logo-empresa">
+                            <h3 data-i18n="job1_title">Ayudante de corte de espuma PU y Operario de control de calidad</h3>
+                        </div>
+                        <div class="date-place" data-i18n="geo_recticel">RECTICEL IBÉRICA, S.L.<br>08/2011 - 05/2023 | Ciudad Rodrigo, España</div>
+                    </div>
+                    <!-- UNIQUE INTERIM -->
+                    <div class="job" data-cat="operario" style="--card-bg-img: url('img/logosempresa/Tarjetastrabajo/logistica.jpg');">
+                        <div class="job-header">
+                            <img src="img/logosempresa/unique.png" alt="Unique" class="logo-empresa">
+                            <h3 data-i18n="job2_title">Operario de carga y organización logística</h3>
+                        </div>
+                        <div class="date-place" data-i18n="geo_unique">UNIQUE INTERIM ETT, S.A.U.<br>03/2011 - 07/2011 | Ciudad Rodrigo, España</div>
+                    </div>
+                    <!-- ISOLUX CORSÁN -->
+                    <div class="job" data-cat="operario" style="--card-bg-img: url('img/logosempresa/Tarjetastrabajo/rsu.png');">
+                        <div class="job-header">
+                            <img src="img/logosempresa/isoluxcorsan.png" alt="Isolux" class="logo-empresa">
+                            <h3 data-i18n="job3_title">Operario de recolección de residuos sólidos urbanos</h3>
+                        </div>
+                        <div class="date-place" data-i18n="geo_isolux">ISOLUX CORSÁN S.L.<br>08/2009 - 12/2010 | La Maya, España</div>
+                    </div>
+                    <!-- START PEOPLE -->
+                    <div class="job" data-cat="operario" style="--card-bg-img: url('img/logosempresa/Tarjetastrabajo/rsu.png');">
+                        <div class="job-header">
+                            <img src="img/logosempresa/startpeople.png" alt="Start People" class="logo-empresa">
+                            <h3 data-i18n="job3_title">Operario de recolección de residuos sólidos urbanos</h3>
+                        </div>
+                        <div class="date-place" data-i18n="geo_start">START PEOPLE ETT, S.A.<br>08/2007 - 12/2008 | La Maya, España</div>
+                    </div>
+                    <!-- TOYOTA / BMW -->
+                    <div class="job" data-cat="mecanico" style="--card-bg-img: url('img/logosempresa/Tarjetastrabajo/auto.jpg');">
+                        <div class="job-header">
+                            <img src="img/logosempresa/toyota.png" alt="Toyota" class="logo-empresa">
+                            <img src="img/logosempresa/bmw.png" alt="BMW" class="logo-empresa">
+                            <h3 data-i18n="job4_title">Mecánico y limpiador de automóviles</h3>
+                        </div>
+                        <div class="date-place" data-i18n="geo_toyota">TOYOTA Automóviles Ken, S.L. / BMW Avilcar, S.L.<br>08/2006 - 12/2006 | Ávila, España</div>
+                    </div>
+                    <!-- VIÑA VACCEOS -->
+                    <div class="job" data-cat="otros" style="--card-bg-img: url('img/logosempresa/Tarjetastrabajo/vendimia.jpg');">
+                        <div class="job-header">
+                            <img src="img/logosempresa/vinavacceos.png" alt="Viña" class="logo-empresa">
+                            <h3 data-i18n="job5_title">Vendimiador</h3>
+                        </div>
+                        <div class="date-place" data-i18n="geo_vacceos">Viña Vacceos S.L.<br>09/2004 - 10/2004 | Burgos, España</div>
+                    </div>
+                    <!-- PEUGEOT -->
+                    <div class="job" data-cat="mecanico" style="--card-bg-img: url('img/logosempresa/Tarjetastrabajo/auto.jpg');">
+                        <div class="job-header">
+                            <img src="img/logosempresa/peugeot.png" alt="Peugeot" class="logo-empresa">
+                            <h3 data-i18n="job6_title">Mecánico en prácticas</h3>
+                        </div>
+                        <div class="date-place" data-i18n="geo_peugeot">Peugeot Tolemartín S.L.<br>04/2004 - 07/2004 | Salamanca, España</div>
+                    </div>
+                </div>
+            </div>
+            <!-- CONTENIDO: EDUCACIÓN -->
+            <div id="educacion" class="tab-content">
+                <div class="filter-container">
+                    <button class="filter-btn active" onclick="filterEdus('all', this)" data-i18n="filter_all_edu">Todos</button>
+                    <button class="filter-btn" onclick="filterEdus('universitario', this)" data-i18n="filter_uni_edu">Universidad</button>
+                    <button class="filter-btn" onclick="filterEdus('tecnico', this)" data-i18n="filter_tec_edu">Técnica</button>
+                    <button class="filter-btn" onclick="filterEdus('otros', this)" data-i18n="filter_otros_edu">Otros</button>
+                </div>
+                <div id="edu-container">
+                    <!-- EXPERTO EN ENERGÍAS RENOVABLES (Imagen: EDP.jpg) -->
+                    <div class="edu" data-cat="universitario" style="--card-bg-img: url('img/educacion/Tarjetasedu/EDP.jpg');">
+                        <div class="edu-header">
+                            <img src="img/educacion/epszamora.png" alt="Zamora" class="logo-edu">
+                            <h3 data-i18n="edu1_degree">Experto en Energías Renovables y Eficiencia Energética</h3>
+                        </div>
+                        <div class="date-place" data-i18n="geo_edu_eps">Escuela Politécnica Superior de Zamora, Universidad de Salamanca<br>2010/2011</div>
+                    </div>
+                    <!-- INGENIERÍA TÉCNICA AGRÍCOLA (Imagen: agricultura.jpg) -->
+                    <div class="edu" data-cat="universitario" style="--card-bg-img: url('img/educacion/Tarjetasedu/agricultura.jpg');">
+                        <div class="edu-header">
+                            <img src="img/educacion/usal.png" alt="Salamanca" class="logo-edu">
+                            <h3 data-i18n="edu2_degree">Ingeniería Técnica Agrícola Esp. Explotaciones Agropecuarias</h3>
+                        </div>
+                        <div class="date-place" data-i18n="geo_edu_usal1">Facultad de Ciencias Agrarias y Ambientales, Universidad de Salamanca<br>2004/2009</div>
+                    </div>
+                    <!-- MANTENIMIENTO DE VEHÍCULOS (Imagen: auto.jpg) -->
+                    <div class="edu" data-cat="tecnico" style="--card-bg-img: url('img/educacion/Tarjetasedu/auto.jpg');">
+                        <div class="edu-header">
+                            <img src="img/educacion/cifpriotormes.png" alt="Río Tormes" class="logo-edu">
+                            <h3 data-i18n="edu3_degree">Técnico Superior en Mantenimiento de Vehículos Autopropulsados</h3>
+                        </div>
+                        <div class="date-place" data-i18n="geo_edu_cifp">CIFP Río Tormes de Salamanca<br>2002/2004</div>
+                    </div>
+                    <!-- LICENCIATURA EN MATEMÁTICAS (Imagen: mats.jpg) -->
+                    <div class="edu" data-cat="universitario" style="--card-bg-img: url('img/educacion/Tarjetasedu/mats.jpg');">
+                        <div class="edu-header">
+                            <img src="img/educacion/usal.png" alt="USAL" class="logo-edu">
+                            <h3 data-i18n="edu4_degree">Licenciatura en Matemáticas</h3>
+                        </div>
+                        <div class="date-place" data-i18n="geo_edu_usal2">Facultad de Ciencias, Universidad de Salamanca<br>2000/2002</div>
+                    </div>
+                    <!-- BACHILLERATO CIENCIAS DE LA SALUD (Imagen: ccss.jpg) -->
+                    <div class="edu" data-cat="otros" style="--card-bg-img: url('img/educacion/Tarjetasedu/ccss.jpg');">
+                        <div class="edu-header">
+                            <img src="img/educacion/iesfraydiegotadeo.png" alt="Fray Diego" class="logo-edu">
+                            <h3 data-i18n="edu5_degree">Bachillerato Ciencias de la Salud</h3>
+                        </div>
+                        <div class="date-place" data-i18n="geo_edu_fray">IES Fray Diego Tadeo González, en Ciudad Rodrigo<br>1998/2000</div>
+                    </div>
+                    <!-- EDUCACIÓN SECUNDARIA OBLIGATORIA (Imagen: es.jpg) -->
+                    <div class="edu" data-cat="otros" style="--card-bg-img: url('img/educacion/Tarjetasedu/es.jpg');">
+                        <div class="edu-header">
+                            <img src="img/educacion/iestierradecr.png" alt="Tierra" class="logo-edu">
+                            <h3 data-i18n="edu6_degree">Educación Secundaria Obligatoria</h3>
+                        </div>
+                        <div class="date-place" data-i18n="geo_edu_tierr">IES Tierra de Ciudad Rodrigo, en Ciudad Rodrigo<br>1996/1998</div>
+                    </div>
+                    <!-- EDUCACIÓN PRIMARIA (Imagen: ep.jpg) -->
+                    <div class="edu" data-cat="otros" style="--card-bg-img: url('img/educacion/Tarjetasedu/ep.jpg');">
+                        <div class="edu-header">
+                            <img src="img/educacion/ceipsanfrancisco.png" alt="San Francisco" class="logo-edu">
+                            <h3 data-i18n="edu7_degree">Educación Primaria</h3>
+                        </div>
+                        <div class="date-place" data-i18n="geo_edu_sanf">CEIP San Francisco, en Ciudad Rodrigo<br>1988/1996</div>
+                    </div>
+                </div>
+            </div>
+            <!-- CONTENIDO: INFORMÁTICA -->
+            <div id="informatica" class="tab-content">
+                <div class="filter-container">
+                    <button class="filter-btn active" onclick="filterTech('all', this)" data-i18n="filter_all">Todos</button>
+                    <button class="filter-btn" onclick="filterTech('sistemas', this)" data-i18n="filter_sis">Sistemas y Programación</button>
+                    <button class="filter-btn" onclick="filterTech('diseno', this)" data-i18n="filter_dis">Diseño y CAD</button>
+                    <button class="filter-btn" onclick="filterTech('gestion', this)" data-i18n="filter_ges">Gestión y Ofimática</button>
+                </div>
+                <div id="tech-container">
+                    <!-- Categoría: Sistemas y Programación -->
+                    <div class="tech" data-cat="sistemas" style="--card-bg-img: url('img/IT/TarjetasInformatica/programacion.png');">
+                        <h3 data-i18n="it_cat_prog">Programación</h3>
+                        <div class="tech-logos">
+                            <img src="img/IT/c++.png" alt="C++" class="logo-edu">
+                            <img src="img/IT/html5.png" alt="HTML5" class="logo-edu">
+                            <img src="img/IT/css.png" alt="CSS" class="logo-edu">
+                            <img src="img/IT/js.png" alt="JavaScript" class="logo-edu">
+                            <img src="img/IT/python.png" alt="python" class="logo-edu">
+                        </div>
+                        <div class="date-place" data-i18n="prog_desc">Conocimientos de C++, HTML5, CSS, JavaScript y python</div>
+                    </div>
+                    <div class="tech" data-cat="sistemas" style="--card-bg-img: url('img/IT/TarjetasInformatica/SsOs.jpg');">
+                        <h3 data-i18n="it_cat_so">Sistemas Operativos</h3>
+                        <div class="tech-logos">
+                            <img src="img/IT/w11.png" alt="Windows 11" class="logo-edu">
+                            <img src="img/IT/w10.png" alt="Windows 10" class="logo-edu">
+                            <img src="img/IT/w8.png" alt="Windows 8" class="logo-edu">
+                            <img src="img/IT/w7.png" alt="Windows 7" class="logo-edu">
+                            <img src="img/IT/wvista.png" alt="Windows Vista" class="logo-edu">
+                            <img src="img/IT/wxp.png" alt="Windows XP" class="logo-edu">
+                            <img src="img/IT/w98.png" alt="Windows 98" class="logo-edu">
+                            <img src="img/IT/linuxubuntu.png" alt="Linux Ubuntu" class="logo-edu">
+                            <img src="img/IT/iOS.png" alt="iOS" class="logo-edu">
+                            <img src="img/IT/android.png" alt="Android" class="logo-edu">
+                            <img src="img/IT/ms2.png" alt="MS-DOS" class="logo-edu">
+                        </div>
+                        <div class="date-place" data-i18n="os_desc">MS-DOS, Windows, Linux, Android, iOS</div>
+                    </div>
+                    <div class="tech" data-cat="sistemas" style="--card-bg-img: url('img/IT/TarjetasInformatica/mv.jpg');">
+                        <h3 data-i18n="it_cat_vm">Máquinas Virtuales</h3>
+                        <div class="tech-logos">
+                            <img src="img/IT/VMware.png" alt="VMware" class="logo-edu">
+                            <img src="img/IT/VBox.png" alt="VirtualBox" class="logo-edu">
+                            <img src="img/IT/hyperV.png" alt="Hyper-V" class="logo-edu">
+                        </div>
+                        <div class="date-place" data-i18n="vm_desc">VMWare, VirtualBox, Hyper-V</div>
+                    </div>
+                    <!-- Categoría: Diseño y CAD -->
+                    <div class="tech" data-cat="diseno" style="--card-bg-img: url('img/IT/TarjetasInformatica/CAD.jpg');">
+                        <h3 data-i18n="it_cat_cad">CAD</h3>
+                        <div class="tech-logos">
+                            <img src="img/IT/BMicrostation.png" alt="Microstation" class="logo-edu">
+                            <img src="img/IT/SW.png" alt="SolidWorks" class="logo-edu">
+                            <img src="img/IT/Catia.png" alt="Catia" class="logo-edu">
+                            <img src="img/IT/autocad.png" alt="AutoCAD" class="logo-edu">
+                            <img src="img/IT/inv.png" alt="Inventor" class="logo-edu">
+                            <img src="img/IT/Sketchup.png" alt="Sketchup" class="logo-edu">
+                            <img src="img/IT/Cype.png" alt="Cype" class="logo-edu">
+                            <img src="img/IT/arduino.png" alt="Arduino" class="logo-edu">
+                            <img src="img/IT/proteus.png" alt="Proteus" class="logo-edu">
+                        </div>
+                        <div class="date-place" data-i18n="cad_eng_desc">Conocimientos de Microstation V8i, SolidWorks, Catia, AutoCAD, Inventor, Sketchup, CypeCAD, Arduino y Proteus</div>
+                    </div>
+                    <div class="tech" data-cat="diseno" style="--card-bg-img: url('img/IT/TarjetasInformatica/GIS.jpg');">
+                        <h3 data-i18n="it_cat_carto">Cartografía</h3>
+                        <div class="tech-logos">
+                            <img src="img/IT/PCI.png" alt="PCI" class="logo-edu">
+                            <img src="img/IT/ArcGIS.png" alt="ArcGIS" class="logo-edu">
+                            <img src="img/IT/arcgis-pro.png" alt="ArcGIS Pro" class="logo-edu">
+                            <img src="img/IT/RAS.png" alt="RAS" class="logo-edu">
+                        </div>
+                        <div class="date-place" data-i18n="gis_desc">Sistemas de Información Geográfica, teledetección y modelado hidráulico en PCI Geomatica, ArcGIS, ArcGIS Pro y HEC-RAS</div>
+                    </div>
+                    <div class="tech" data-cat="diseno" style="--card-bg-img: url('img/IT/TarjetasInformatica/photoshop-vs-coreldraw.jpg');">
+                        <h3 data-i18n="it_cat_design">Diseño</h3>
+                        <div class="tech-logos">
+                            <img src="img/IT/coreldraw.png" alt="CorelDraw" class="logo-edu">
+                            <img src="img/IT/ps.png" alt="Photoshop" class="logo-edu">
+                        </div>
+                        <div class="date-place" data-i18n="design_desc">Diseño vectorial y edición digital en Corel Draw y Photoshop</div>
+                    </div>
+                    <!-- Categoría: Gestión y Ofimática -->
+                    <div class="tech" data-cat="gestion" style="--card-bg-img: url('img/IT/TarjetasInformatica/ofimatica.jpg');">
+                        <h3 data-i18n="it_cat_office">Ofimática</h3>
+                        <div class="tech-logos">
+                            <img src="img/IT/msoffice.png" alt="MS Office" class="logo-edu">
+                            <img src="img/IT/openoffice.png" alt="OpenOffice" class="logo-edu">
+                        </div>
+                        <div class="date-place" data-i18n="office_desc">Dominio profesional de Microsoft Office y Open Office</div>
+                    </div>
+                    <div class="tech" data-cat="gestion" style="--card-bg-img: url('img/IT/TarjetasInformatica/presup.jpg');">
+                        <h3 data-i18n="it_cat_budget">Presupuestos</h3>
+                        <div class="tech-logos">
+                            <img src="img/IT/Presto.png" alt="Presto" class="logo-edu">
+                        </div>
+                        <div class="date-place" data-i18n="presto_desc">Presupuestos, mediciones y control de costes en PRESTO</div>
+                    </div>
+                    <div class="tech" data-cat="gestion" style="--card-bg-img: url('img/IT/TarjetasInformatica/erp.png');">
+                        <h3 data-i18n="it_cat_erp">ERP</h3>
+                        <div class="tech-logos">
+                            <img src="img/IT/SAP.png" alt="SAP" class="logo-edu">
+                        </div>
+                        <div class="date-place" data-i18n="sap_stock_management">Gestión de stocks en SAP MM</div>
+                    </div>
+                </div> <!-- Cierre de #tech-container -->
+            </div> <!-- Cierre de #informatica -->
+            <!-- CONTENIDO: PORTAFOLIO TÉCNICO -->
+            <div id="portfolio" class="tab-content">
+                <!-- Proyecto 1: Modelo Digital Terreno -->
+                <div class="job">
+                    <div class="job-header">
+                        <h3 data-i18n="proj1_title">Modelo digital del terreno de la cuenca del Río Águeda en la comarca de Ciudad Rodrigo (Salamanca)</h3>
+                    </div>
+                    <div class="date-place" data-i18n="proj1_sub">Desarrollo e Implementación de Sistemas de Información Geográfica | 2025</div>
+                    <p data-i18n="proj1_desc">Con este modelado quería conseguir un gemelo digital en el que poder aplicar capas de datos para realizar cálculos sucesivos y conseguir mapas de riesgos de inundaciones en tiempo real. He utilizado curvas de nivel con equidistancia de 20 m, desarrollando el modelo digital del terreno mediante ArcGIS PRO and añadiéndole imágenes satelitales georeferenciadas.</p>
+                    <!-- REPRODUCTOR INCRUSTADO INTERACTIVO DE YOUTUBE -->
+                    <iframe class="project-video"
+                            src="https://www.youtube.com/embed/JcSmtbRHals?si=zmJfkJNSMw839uWm"
+                            title="YouTube video player"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            allowfullscreen>
+                    </iframe>
+                </div>
+                <!-- Proyecto 2: Los 9 Módulos del Estudio Hidrológico -->
+                <div class="job">
+                    <div class="job-header">
+                        <h3 data-i18n="proj2_title">Caracterización de Recursos Hídricos de la Cuenca del Río Águeda</h3>
+                    </div>
+                    <div class="date-place" data-i18n="proj2_sub">Estudio Hidrológico y Gestión Ambiental | 2024</div>
+                    <p data-i18n="proj2_desc">Estudio exhaustivo y análisis de caracterización de los recursos hídricos en la cuenca del río Águeda a su paso por la comarca de Ciudad Rodrigo. El compendio incluye memorias técnicas, balances de caudales y mapas de zonificación distribuidos en 9 módulos integrales.</p>
+                    <!-- REJILLA PARA LOS 9 MÓDULOS PDF -->
+                    <div class="pdf-grid">
+                        <a href="img/Proyectos/Proyecto2/Hidrología1.pdf" target="_blank" class="pdf-btn-item">
+                            <div class="pdf-text-info">
+                                <span class="pdf-title-doc" data-i18n="p2_m1_t">Estudio Hidrológico - Parte I</span>
+                                <span class="pdf-desc-doc" data-i18n="p2_m1_d">Introducción y contextualización de la cuenca</span>
                             </div>
-                            <!-- Tarjeta 2: Contacto -->
-                            <div class="sidebar-card">
-                                <h2 data-i18n="title_contacto">Contacto</h2>
-                                <ul class="contact-list">
-                                    <li>
-                                        <img src="img/Contacto/tf.png" alt="Teléfono" class="contact-img-icon">
-                                            <span>+34 691 345 389</span>
-                                    </li>
-                                    <li>
-                                        <img src="img/Contacto/mail.png" alt="Email" class="contact-img-icon">
-                                            <a href="mailto:dami5121982@gmail.com">dami5121982@gmail.com</a>
-                                    </li>
-                                    <li>
-                                        <img src="img/Contacto/location.png" alt="Ubicación" class="contact-img-icon">
-                                            <span>Ciudad Rodrigo, España</span>
-                                    </li>
-                                </ul>
+                        </a>
+                        <a href="img/Proyectos/Proyecto2/Hidrología2.pdf" target="_blank" class="pdf-btn-item">
+                            <div class="pdf-text-info">
+                                <span class="pdf-title-doc" data-i18n="p2_m2_t">Estudio Hidrológico - Parte II</span>
+                                <span class="pdf-desc-doc" data-i18n="p2_m2_d">Climatología y régimen de precipitaciones</span>
                             </div>
-                            <!-- Tarjeta 3: Idiomas con Sectores de Nivel -->
-                            <div class="sidebar-card">
-                                <h2 data-i18n="title_idiomas">Idiomas</h2>
-                                <ul class="languages-list">
-                                    <li>
-                                        <div class="flag-ring lvl-4"><img src="img/idiomas/castellano.png" class="flag-icon" alt="ES"></div>
-                                        <span data-i18n="lvl_native">Español (Competencia Nativa)</span>
-                                    </li>
-                                    <li>
-                                        <div class="flag-ring lvl-3"><img src="img/idiomas/inglés.png" class="flag-icon" alt="EN"></div>
-                                        <span data-i18n="lvl_professional">Inglés (Competencia Profesional)</span>
-                                    </li>
-                                    <li>
-                                        <div class="flag-ring lvl-1"><img src="img/idiomas/frances.png" class="flag-icon" alt="FR"></div>
-                                        <span data-i18n="lvl_elementary_fr">Francés (Competencia Elemental)</span>
-                                    </li>
-                                    <li>
-                                        <div class="flag-ring lvl-1"><img src="img/idiomas/portugues.png" class="flag-icon" alt="PT"></div>
-                                        <span data-i18n="lvl_elementary_pt">Portugués (Competencia Elemental)</span>
-                                    </li>
-                                </ul>
+                        </a>
+                        <a href="img/Proyectos/Proyecto2/Hidrología3.pdf" target="_blank" class="pdf-btn-item">
+                            <div class="pdf-text-info">
+                                <span class="pdf-title-doc" data-i18n="p2_m3_t">Estudio Hidrológico - Parte III</span>
+                                <span class="pdf-desc-doc" data-i18n="p2_m3_d">Geología, permeabilidad y escorrentía</span>
                             </div>
-                            <!-- Tarjeta 4: Aptitudes -->
-                            <div class="sidebar-card">
-                                <h2 data-i18n="title_aptitudes">Aptitudes</h2>
-                                <ul class="badge-list">
-                                    <li><img src="img/aptitudes/resoluciondeproblemas.png" class="skill-icon" alt="P"> <span data-i18n="skill_problemas">Solución de problemas</span></li>
-                                    <li><img src="img/aptitudes/pensamientoanalitico.png" class="skill-icon" alt="A"> <span data-i18n="skill_analitico">Pensamiento analítico</span></li>
-                                    <li><img src="img/aptitudes/trabajoenequipo.png" class="skill-icon" alt="E"> <span data-i18n="skill_equipo">Trabajo en equipo</span></li>
-                                    <li><img src="img/aptitudes/capacidadorganizativa.png" class="skill-icon" alt="O"> <span data-i18n="skill_organizacion">Organización</span></li>
-                                    <li><img src="img/aptitudes/habilidadescomunicativas.png" class="skill-icon" alt="C"> <span data-i18n="skill_comunicacion">Comunicación</span></li>
-                                    <li><img src="img/aptitudes/inteligenciaemocional.png" class="skill-icon" alt="Em"> <span data-i18n="skill_emocional">Inteligencia emocional</span></li>
-                                    <li><img src="img/aptitudes/atencionadetalles.png" class="skill-icon" alt="D"> <span data-i18n="skill_detalle">Atención al detalle</span></li>
-                                </ul>
+                        </a>
+                        <a href="img/Proyectos/Proyecto2/Hidrología4.pdf" target="_blank" class="pdf-btn-item">
+                            <div class="pdf-text-info">
+                                <span class="pdf-title-doc" data-i18n="p2_m4_t">Estudio Hidrológico - Parte IV</span>
+                                <span class="pdf-desc-doc" data-i18n="p2_m4_d">Análisis de caudales y avenidas máximas</span>
                             </div>
-                        </aside>
-                        <!-- COLUMNA PRINCIPAL -->
-                        <main class="main-col">
-                            <!-- LOS CUATRO BOTONES AZULES PRINCIPALES -->
-                            <div class="tabs-nav">
-                                <button class="tab-btn active" onclick="openTab('experiencia', this)" data-i18n="tab_exp">Experiencia Profesional</button>
-                                <button class="tab-btn" onclick="openTab('educacion', this)" data-i18n="tab_edu">Educación</button>
-                                <button class="tab-btn" onclick="openTab('informatica', this)" data-i18n="tab_inf">Informática & Software</button>
-                                <button class="tab-btn" onclick="openTab('portfolio', this)" data-i18n="tab_port">Portafolio Técnico</button>
+                        </a>
+                        <a href="img/Proyectos/Proyecto2/Hidrología5.pdf" target="_blank" class="pdf-btn-item">
+                            <div class="pdf-text-info">
+                                <span class="pdf-title-doc" data-i18n="p2_m5_t">Estudio Hidrológico - Parte V</span>
+                                <span class="pdf-desc-doc" data-i18n="p2_m5_d">Balance hídrico y demandas locales</span>
                             </div>
-                            <!-- CONTENIDO: EXPERIENCIA -->
-                            <div id="experiencia" class="tab-content" style="display: block;">
-                                <div class="filter-container">
-                                    <button class="filter-btn active" onclick="filterJobs('all', this)" data-i18n="filter_all">Todos</button>
-                                    <button class="filter-btn" onclick="filterJobs('operario', this)" data-i18n="filter_operario">Operario / Calidad</button>
-                                    <button class="filter-btn" onclick="filterJobs('mecanico', this)" data-i18n="filter_mecanico">Mecánica / Automoción</button>
-                                    <button class="filter-btn" onclick="filterJobs('otros', this)" data-i18n="filter_otros">Otros</button>
-                                </div>
-                                <div id="jobs-container">
-                                    <!-- CARPENTER -->
-                                    <div class="job" data-cat="operario" style="--card-bg-img: url('img/logosempresa/Tarjetastrabajo/rollos.jpeg');">
-                                        <div class="job-header">
-                                            <img src="img/logosempresa/carpenter.png" alt="Carpenter" class="logo-empresa">
-                                                <h3 data-i18n="job1_title">Ayudante de corte de espuma PU y Operario de control de calidad</h3>
-                                        </div>
-                                        <div class="date-place" data-i18n="geo_carpenter">CARPENTER IBÉRICA, S.L.<br>06/2023 - Actualidad | Ciudad Rodrigo, España</div>
-                                    </div>
-                                    <!-- RECTICEL -->
-                                    <div class="job" data-cat="operario" style="--card-bg-img: url('img/logosempresa/Tarjetastrabajo/rollos.jpeg');">
-                                        <div class="job-header">
-                                            <img src="img/logosempresa/recticel.png" alt="Recticel" class="logo-empresa">
-                                                <h3 data-i18n="job1_title">Ayudante de corte de espuma PU y Operario de control de calidad</h3>
-                                        </div>
-                                        <div class="date-place" data-i18n="geo_recticel">RECTICEL IBÉRICA, S.L.<br>08/2011 - 05/2023 | Ciudad Rodrigo, España</div>
-                                    </div>
-                                    <!-- UNIQUE INTERIM -->
-                                    <div class="job" data-cat="operario" style="--card-bg-img: url('img/logosempresa/Tarjetastrabajo/logistica.jpg');">
-                                        <div class="job-header">
-                                            <img src="img/logosempresa/unique.png" alt="Unique" class="logo-empresa">
-                                                <h3 data-i18n="job2_title">Operario de carga y organización logística</h3>
-                                        </div>
-                                        <div class="date-place" data-i18n="geo_unique">UNIQUE INTERIM ETT, S.A.U.<br>03/2011 - 07/2011 | Ciudad Rodrigo, España</div>
-                                    </div>
-                                    <!-- ISOLUX CORSÁN -->
-                                    <div class="job" data-cat="operario" style="--card-bg-img: url('img/logosempresa/Tarjetastrabajo/rsu.png');">
-                                        <div class="job-header">
-                                            <img src="img/logosempresa/isoluxcorsan.png" alt="Isolux" class="logo-empresa">
-                                                <h3 data-i18n="job3_title">Operario de recolección de residuos sólidos urbanos</h3>
-                                        </div>
-                                        <div class="date-place" data-i18n="geo_isolux">ISOLUX CORSÁN S.L.<br>08/2009 - 12/2010 | La Maya, España</div>
-                                    </div>
-                                    <!-- START PEOPLE -->
-                                    <div class="job" data-cat="operario" style="--card-bg-img: url('img/logosempresa/Tarjetastrabajo/rsu.png');">
-                                        <div class="job-header">
-                                            <img src="img/logosempresa/startpeople.png" alt="Start People" class="logo-empresa">
-                                                <h3 data-i18n="job3_title">Operario de recolección de residuos sólidos urbanos</h3>
-                                        </div>
-                                        <div class="date-place" data-i18n="geo_start">START PEOPLE ETT, S.A.<br>08/2007 - 12/2008 | La Maya, España</div>
-                                    </div>
-                                    <!-- TOYOTA / BMW -->
-                                    <div class="job" data-cat="mecanico" style="--card-bg-img: url('img/logosempresa/Tarjetastrabajo/auto.jpg');">
-                                        <div class="job-header">
-                                            <img src="img/logosempresa/toyota.png" alt="Toyota" class="logo-empresa">
-                                                <img src="img/logosempresa/bmw.png" alt="BMW" class="logo-empresa">
-                                                    <h3 data-i18n="job4_title">Mecánico y limpiador de automóviles</h3>
-                                                </div>
-                                                <div class="date-place" data-i18n="geo_toyota">TOYOTA Automóviles Ken, S.L. / BMW Avilcar, S.L.<br>08/2006 - 12/2006 | Ávila, España</div>
-                                        </div>
-                                        <!-- VIÑA VACCEOS -->
-                                        <div class="job" data-cat="otros" style="--card-bg-img: url('img/logosempresa/Tarjetastrabajo/vendimia.jpg');">
-                                            <div class="job-header">
-                                                <img src="img/logosempresa/vinavacceos.png" alt="Viña" class="logo-empresa">
-                                                    <h3 data-i18n="job5_title">Vendimiador</h3>
-                                            </div>
-                                            <div class="date-place" data-i18n="geo_vacceos">Viña Vacceos S.L.<br>09/2004 - 10/2004 | Burgos, España</div>
-                                        </div>
-                                        <!-- PEUGEOT -->
-                                        <div class="job" data-cat="mecanico" style="--card-bg-img: url('img/logosempresa/Tarjetastrabajo/auto.jpg');">
-                                            <div class="job-header">
-                                                <img src="img/logosempresa/peugeot.png" alt="Peugeot" class="logo-empresa">
-                                                    <h3 data-i18n="job6_title">Mecánico en prácticas</h3>
-                                            </div>
-                                            <div class="date-place" data-i18n="geo_peugeot">Peugeot Tolemartín S.L.<br>04/2004 - 07/2004 | Salamanca, España</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- CONTENIDO: EDUCACIÓN -->
-                                <div id="educacion" class="tab-content">
-                                    <div class="filter-container">
-                                        <button class="filter-btn active" onclick="filterEdus('all', this)" data-i18n="filter_all_edu">Todos</button>
-                                        <button class="filter-btn" onclick="filterEdus('universitario', this)" data-i18n="filter_uni_edu">Universidad</button>
-                                        <button class="filter-btn" onclick="filterEdus('tecnico', this)" data-i18n="filter_tec_edu">Técnica</button>
-                                        <button class="filter-btn" onclick="filterEdus('otros', this)" data-i18n="filter_otros_edu">Otros</button>
-                                    </div>
-                                    <div id="edu-container">
-                                        <!-- EXPERTO EN ENERGÍAS RENOVABLES (Imagen: EDP.jpg) -->
-                                        <div class="edu" data-cat="universitario" style="--card-bg-img: url('img/educacion/Tarjetasedu/EDP.jpg');">
-                                            <div class="edu-header">
-                                                <img src="img/educacion/epszamora.png" alt="Zamora" class="logo-edu">
-                                                    <h3 data-i18n="edu1_degree">Experto en Energías Renovables y Eficiencia Energética</h3>
-                                            </div>
-                                            <div class="date-place" data-i18n="geo_edu_eps">Escuela Politécnica Superior de Zamora, Universidad de Salamanca<br>2010/2011</div>
-                                        </div>
-                                        <!-- INGENIERÍA TÉCNICA AGRÍCOLA (Imagen: agricultura.jpg) -->
-                                        <div class="edu" data-cat="universitario" style="--card-bg-img: url('img/educacion/Tarjetasedu/agricultura.jpg');">
-                                            <div class="edu-header">
-                                                <img src="img/educacion/usal.png" alt="Salamanca" class="logo-edu">
-                                                    <h3 data-i18n="edu2_degree">Ingeniería Técnica Agrícola Esp. Explotaciones Agropecuarias</h3>
-                                            </div>
-                                            <div class="date-place" data-i18n="geo_edu_usal1">Facultad de Ciencias Agrarias y Ambientales, Universidad de Salamanca<br>2004/2009</div>
-                                        </div>
-                                        <!-- MANTENIMIENTO DE VEHÍCULOS (Imagen: auto.jpg) -->
-                                        <div class="edu" data-cat="tecnico" style="--card-bg-img: url('img/educacion/Tarjetasedu/auto.jpg');">
-                                            <div class="edu-header">
-                                                <img src="img/educacion/cifpriotormes.png" alt="Río Tormes" class="logo-edu">
-                                                    <h3 data-i18n="edu3_degree">Técnico Superior en Mantenimiento de Vehículos Autopropulsados</h3>
-                                            </div>
-                                            <div class="date-place" data-i18n="geo_edu_cifp">CIFP Río Tormes de Salamanca<br>2002/2004</div>
-                                        </div>
-                                        <!-- LICENCIATURA EN MATEMÁTICAS (Imagen: mats.jpg) -->
-                                        <div class="edu" data-cat="universitario" style="--card-bg-img: url('img/educacion/Tarjetasedu/mats.jpg');">
-                                            <div class="edu-header">
-                                                <img src="img/educacion/usal.png" alt="USAL" class="logo-edu">
-                                                    <h3 data-i18n="edu4_degree">Licenciatura en Matemáticas</h3>
-                                            </div>
-                                            <div class="date-place" data-i18n="geo_edu_usal2">Facultad de Ciencias, Universidad de Salamanca<br>2000/2002</div>
-                                        </div>
-                                        <!-- BACHILLERATO CIENCIAS DE LA SALUD (Imagen: ccss.jpg) -->
-                                        <div class="edu" data-cat="otros" style="--card-bg-img: url('img/educacion/Tarjetasedu/ccss.jpg');">
-                                            <div class="edu-header">
-                                                <img src="img/educacion/iesfraydiegotadeo.png" alt="Fray Diego" class="logo-edu">
-                                                    <h3 data-i18n="edu5_degree">Bachillerato Ciencias de la Salud</h3>
-                                            </div>
-                                            <div class="date-place" data-i18n="geo_edu_fray">IES Fray Diego Tadeo González, en Ciudad Rodrigo<br>1998/2000</div>
-                                        </div>
-                                        <!-- EDUCACIÓN SECUNDARIA OBLIGATORIA (Imagen: es.jpg) -->
-                                        <div class="edu" data-cat="otros" style="--card-bg-img: url('img/educacion/Tarjetasedu/es.jpg');">
-                                            <div class="edu-header">
-                                                <img src="img/educacion/iestierradecr.png" alt="Tierra" class="logo-edu">
-                                                    <h3 data-i18n="edu6_degree">Educación Secundaria Obligatoria</h3>
-                                            </div>
-                                            <div class="date-place" data-i18n="geo_edu_tierr">IES Tierra de Ciudad Rodrigo, en Ciudad Rodrigo<br>1996/1998</div>
-                                        </div>
-                                        <!-- EDUCACIÓN PRIMARIA (Imagen: ep.jpg) -->
-                                        <div class="edu" data-cat="otros" style="--card-bg-img: url('img/educacion/Tarjetasedu/ep.jpg');">
-                                            <div class="edu-header">
-                                                <img src="img/educacion/ceipsanfrancisco.png" alt="San Francisco" class="logo-edu">
-                                                    <h3 data-i18n="edu7_degree">Educación Primaria</h3>
-                                            </div>
-                                            <div class="date-place" data-i18n="geo_edu_sanf">CEIP San Francisco, en Ciudad Rodrigo<br>1988/1996</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- CONTENIDO: INFORMÁTICA -->
-                                <div id="informatica" class="tab-content">
-                                    <div class="filter-container">
-                                        <button class="filter-btn active" onclick="filterTech('all', this)" data-i18n="filter_all">Todos</button>
-                                        <button class="filter-btn" onclick="filterTech('sistemas', this)" data-i18n="filter_sis">Sistemas y Programación</button>
-                                        <button class="filter-btn" onclick="filterTech('diseno', this)" data-i18n="filter_dis">Diseño y CAD</button>
-                                        <button class="filter-btn" onclick="filterTech('gestion', this)" data-i18n="filter_ges">Gestión y Ofimática</button>
-                                    </div>
-                                    <div id="tech-container">
-                                        <!-- Categoría: Sistemas y Programación -->
-                                        <div class="tech" data-cat="sistemas" style="--card-bg-img: url('img/IT/TarjetasInformatica/programacion.png');">
-                                            <h3 data-i18n="it_cat_prog">Programación</h3>
-                                            <div class="tech-logos">
-                                                <img src="img/IT/c++.png" alt="C++" class="logo-edu">
-                                                    <img src="img/IT/html5.png" alt="HTML5" class="logo-edu">
-                                                        <img src="img/IT/css.png" alt="CSS" class="logo-edu">
-                                                            <img src="img/IT/js.png" alt="JavaScript" class="logo-edu">
-                                                                <img src="img/IT/python.png" alt="python" class="logo-edu">
-                                                                </div>
-                                                                <div class="date-place" data-i18n="prog_desc">Conocimientos de C++, HTML5, CSS, JavaScript y python</div>
-                                                            </div>
-                                                            <div class="tech" data-cat="sistemas" style="--card-bg-img: url('img/IT/TarjetasInformatica/SsOs.jpg');">
-                                                                <h3 data-i18n="it_cat_so">Sistemas Operativos</h3>
-                                                                <div class="tech-logos">
-                                                                    <img src="img/IT/w11.png" alt="Windows 11" class="logo-edu">
-                                                                        <img src="img/IT/w10.png" alt="Windows 10" class="logo-edu">
-                                                                            <img src="img/IT/w8.png" alt="Windows 8" class="logo-edu">
-                                                                                <img src="img/IT/w7.png" alt="Windows 7" class="logo-edu">
-                                                                                    <img src="img/IT/wvista.png" alt="Windows Vista" class="logo-edu">
-                                                                                        <img src="img/IT/wxp.png" alt="Windows XP" class="logo-edu">
-                                                                                            <img src="img/IT/w98.png" alt="Windows 98" class="logo-edu">
-                                                                                                <img src="img/IT/linuxubuntu.png" alt="Linux Ubuntu" class="logo-edu">
-                                                                                                    <img src="img/IT/iOS.png" alt="iOS" class="logo-edu">
-                                                                                                        <img src="img/IT/android.png" alt="Android" class="logo-edu">
-                                                                                                            <img src="img/IT/ms2.png" alt="MS-DOS" class="logo-edu">
-                                                                                                            </div>
-                                                                                                            <div class="date-place" data-i18n="os_desc">MS-DOS, Windows, Linux, Android, iOS</div>
-                                                                                                        </div>
-                                                                                                        <div class="tech" data-cat="sistemas" style="--card-bg-img: url('img/IT/TarjetasInformatica/mv.jpg');">
-                                                                                                            <h3 data-i18n="it_cat_vm">Máquinas Virtuales</h3>
-                                                                                                            <div class="tech-logos">
-                                                                                                                <img src="img/IT/VMware.png" alt="VMware" class="logo-edu">
-                                                                                                                    <img src="img/IT/VBox.png" alt="VirtualBox" class="logo-edu">
-                                                                                                                        <img src="img/IT/hyperV.png" alt="Hyper-V" class="logo-edu">
-                                                                                                                        </div>
-                                                                                                                        <div class="date-place" data-i18n="vm_desc">VMWare, VirtualBox, Hyper-V</div>
-                                                                                                                    </div>
-                                                                                                                    <!-- Categoría: Diseño y CAD -->
-                                                                                                                    <div class="tech" data-cat="diseno" style="--card-bg-img: url('img/IT/TarjetasInformatica/CAD.jpg');">
-                                                                                                                        <h3 data-i18n="it_cat_cad">CAD</h3>
-                                                                                                                        <div class="tech-logos">
-                                                                                                                            <img src="img/IT/BMicrostation.png" alt="Microstation" class="logo-edu">
-                                                                                                                                <img src="img/IT/SW.png" alt="SolidWorks" class="logo-edu">
-                                                                                                                                    <img src="img/IT/Catia.png" alt="Catia" class="logo-edu">
-                                                                                                                                        <img src="img/IT/autocad.png" alt="AutoCAD" class="logo-edu">
-                                                                                                                                            <img src="img/IT/inv.png" alt="Inventor" class="logo-edu">
-                                                                                                                                                <img src="img/IT/Sketchup.png" alt="Sketchup" class="logo-edu">
-                                                                                                                                                    <img src="img/IT/Cype.png" alt="Cype" class="logo-edu">
-                                                                                                                                                        <img src="img/IT/arduino.png" alt="Arduino" class="logo-edu">
-                                                                                                                                                            <img src="img/IT/proteus.png" alt="Proteus" class="logo-edu">
-                                                                                                                                                            </div>
-                                                                                                                                                            <div class="date-place" data-i18n="cad_eng_desc">Conocimientos de Microstation V8i, SolidWorks, Catia, AutoCAD, Inventor, Sketchup, CypeCAD, Arduino y Proteus</div>
-                                                                                                                                                        </div>
-                                                                                                                                                        <div class="tech" data-cat="diseno" style="--card-bg-img: url('img/IT/TarjetasInformatica/GIS.jpg');">
-                                                                                                                                                            <h3 data-i18n="it_cat_carto">Cartografía</h3>
-                                                                                                                                                            <div class="tech-logos">
-                                                                                                                                                                <img src="img/IT/PCI.png" alt="PCI" class="logo-edu">
-                                                                                                                                                                    <img src="img/IT/ArcGIS.png" alt="ArcGIS" class="logo-edu">
-                                                                                                                                                                        <img src="img/IT/arcgis-pro.png" alt="ArcGIS Pro" class="logo-edu">
-                                                                                                                                                                            <img src="img/IT/RAS.png" alt="RAS" class="logo-edu">
-                                                                                                                                                                            </div>
-                                                                                                                                                                            <div class="date-place" data-i18n="gis_desc">Sistemas de Información Geográfica, teledetección y modelado hidráulico en PCI Geomatica, ArcGIS, ArcGIS Pro y HEC-RAS</div>
-                                                                                                                                                                        </div>
-                                                                                                                                                                        <div class="tech" data-cat="diseno" style="--card-bg-img: url('img/IT/TarjetasInformatica/photoshop-vs-coreldraw.jpg');">
-                                                                                                                                                                            <h3 data-i18n="it_cat_design">Diseño</h3>
-                                                                                                                                                                            <div class="tech-logos">
-                                                                                                                                                                                <img src="img/IT/coreldraw.png" alt="CorelDraw" class="logo-edu">
-                                                                                                                                                                                    <img src="img/IT/ps.png" alt="Photoshop" class="logo-edu">
-                                                                                                                                                                                    </div>
-                                                                                                                                                                                    <div class="date-place" data-i18n="design_desc">Diseño vectorial y edición digital en Corel Draw y Photoshop</div>
-                                                                                                                                                                            </div>
-                                                                                                                                                                            <!-- Categoría: Gestión y Ofimática -->
-                                                                                                                                                                            <div class="tech" data-cat="gestion" style="--card-bg-img: url('img/IT/TarjetasInformatica/ofimatica.jpg');">
-                                                                                                                                                                                <h3 data-i18n="it_cat_office">Ofimática</h3>
-                                                                                                                                                                                <div class="tech-logos">
-                                                                                                                                                                                    <img src="img/IT/msoffice.png" alt="MS Office" class="logo-edu">
-                                                                                                                                                                                        <img src="img/IT/openoffice.png" alt="OpenOffice" class="logo-edu">
-                                                                                                                                                                                        </div>
-                                                                                                                                                                                        <div class="date-place" data-i18n="office_desc">Dominio profesional de Microsoft Office y Open Office</div>
-                                                                                                                                                                                </div>
-                                                                                                                                                                                <div class="tech" data-cat="gestion" style="--card-bg-img: url('img/IT/TarjetasInformatica/presup.jpg');">
-                                                                                                                                                                                    <h3 data-i18n="it_cat_budget">Presupuestos</h3>
-                                                                                                                                                                                    <div class="tech-logos">
-                                                                                                                                                                                        <img src="img/IT/Presto.png" alt="Presto" class="logo-edu">
-                                                                                                                                                                                    </div>
-                                                                                                                                                                                    <div class="date-place" data-i18n="presto_desc">Presupuestos, mediciones y control de costes en PRESTO</div>
-                                                                                                                                                                                </div>
-                                                                                                                                                                                <div class="tech" data-cat="gestion" style="--card-bg-img: url('img/IT/TarjetasInformatica/erp.png');">
-                                                                                                                                                                                    <h3 data-i18n="it_cat_erp">ERP</h3>
-                                                                                                                                                                                    <div class="tech-logos">
-                                                                                                                                                                                        <img src="img/IT/SAP.png" alt="SAP" class="logo-edu">
-                                                                                                                                                                                    </div>
-                                                                                                                                                                                    <div class="date-place" data-i18n="sap_stock_management">Gestión de stocks en SAP MM</div>
-                                                                                                                                                                                </div>
-                                                                                                                                                                            </div> <!-- Cierre de #tech-container -->
-                                                                                                                                                                        </div> <!-- Cierre de #informatica -->
-                                                                                                                                                                        <!-- CONTENIDO: PORTAFOLIO TÉCNICO -->
-                                                                                                                                                                        <div id="portfolio" class="tab-content">
-                                                                                                                                                                            <!-- Proyecto 1: Modelo Digital Terreno -->
-                                                                                                                                                                            <div class="job">
-                                                                                                                                                                                <div class="job-header">
-                                                                                                                                                                                    <h3 data-i18n="proj1_title">Modelo digital del terreno de la cuenca del Río Águeda en la comarca de Ciudad Rodrigo (Salamanca)</h3>
-                                                                                                                                                                                </div>
-                                                                                                                                                                                <div class="date-place" data-i18n="proj1_sub">Desarrollo e Implementación de Sistemas de Información Geográfica | 2025</div>
-                                                                                                                                                                                <p data-i18n="proj1_desc">Con este modelado quería conseguir un gemelo digital en el que poder aplicar capas de datos para realizar cálculos sucesivos y conseguir mapas de riesgos de inundaciones en tiempo real. He utilizado curvas de nivel con equidistancia de 20 m, desarrollando el modelo digital del terreno mediante ArcGIS PRO and añadiéndole imágenes satelitales georeferenciadas.</p>
-                                                                                                                                                                                <!-- REPRODUCTOR INCRUSTADO INTERACTIVO DE YOUTUBE -->
-                                                                                                                                                                                <iframe class="project-video"
-                                                                                                                                                                                    src="https://www.youtube.com/embed/JcSmtbRHals?si=zmJfkJNSMw839uWm"
-                                                                                                                                                                                    title="YouTube video player"
-                                                                                                                                                                                    frameborder="0"
-                                                                                                                                                                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                                                                                                                                                                    referrerpolicy="strict-origin-when-cross-origin"
-                                                                                                                                                                                    allowfullscreen>
-                                                                                                                                                                                </iframe>
-                                                                                                                                                                            </div>
-                                                                                                                                                                            <!-- Proyecto 2: Los 9 Módulos del Estudio Hidrológico -->
-                                                                                                                                                                            <div class="job">
-                                                                                                                                                                                <div class="job-header">
-                                                                                                                                                                                    <h3 data-i18n="proj2_title">Caracterización de Recursos Hídricos de la Cuenca del Río Águeda</h3>
-                                                                                                                                                                                </div>
-                                                                                                                                                                                <div class="date-place" data-i18n="proj2_sub">Estudio Hidrológico y Gestión Ambiental | 2024</div>
-                                                                                                                                                                                <p data-i18n="proj2_desc">Estudio exhaustivo y análisis de caracterización de los recursos hídricos en la cuenca del río Águeda a su paso por la comarca de Ciudad Rodrigo. El compendio incluye memorias técnicas, balances de caudales y mapas de zonificación distribuidos en 9 módulos integrales.</p>
-                                                                                                                                                                                <!-- REJILLA PARA LOS 9 MÓDULOS PDF -->
-                                                                                                                                                                                <div class="pdf-grid">
-                                                                                                                                                                                    <a href="img/Proyectos/Proyecto2/Hidrología1.pdf" target="_blank" class="pdf-btn-item">
-                                                                                                                                                                                        <div class="pdf-text-info">
-                                                                                                                                                                                            <span class="pdf-title-doc" data-i18n="p2_m1_t">Estudio Hidrológico - Parte I</span>
-                                                                                                                                                                                            <span class="pdf-desc-doc" data-i18n="p2_m1_d">Introducción y contextualización de la cuenca</span>
-                                                                                                                                                                                        </div>
-                                                                                                                                                                                    </a>
-                                                                                                                                                                                    <a href="img/Proyectos/Proyecto2/Hidrología2.pdf" target="_blank" class="pdf-btn-item">
-                                                                                                                                                                                        <div class="pdf-text-info">
-                                                                                                                                                                                            <span class="pdf-title-doc" data-i18n="p2_m2_t">Estudio Hidrológico - Parte II</span>
-                                                                                                                                                                                            <span class="pdf-desc-doc" data-i18n="p2_m2_d">Climatología y régimen de precipitaciones</span>
-                                                                                                                                                                                        </div>
-                                                                                                                                                                                    </a>
-                                                                                                                                                                                    <a href="img/Proyectos/Proyecto2/Hidrología3.pdf" target="_blank" class="pdf-btn-item">
-                                                                                                                                                                                        <div class="pdf-text-info">
-                                                                                                                                                                                            <span class="pdf-title-doc" data-i18n="p2_m3_t">Estudio Hidrológico - Parte III</span>
-                                                                                                                                                                                            <span class="pdf-desc-doc" data-i18n="p2_m3_d">Geología, permeabilidad y escorrentía</span>
-                                                                                                                                                                                        </div>
-                                                                                                                                                                                    </a>
-                                                                                                                                                                                    <a href="img/Proyectos/Proyecto2/Hidrología4.pdf" target="_blank" class="pdf-btn-item">
-                                                                                                                                                                                        <div class="pdf-text-info">
-                                                                                                                                                                                            <span class="pdf-title-doc" data-i18n="p2_m4_t">Estudio Hidrológico - Parte IV</span>
-                                                                                                                                                                                            <span class="pdf-desc-doc" data-i18n="p2_m4_d">Análisis de caudales y avenidas máximas</span>
-                                                                                                                                                                                        </div>
-                                                                                                                                                                                    </a>
-                                                                                                                                                                                    <a href="img/Proyectos/Proyecto2/Hidrología5.pdf" target="_blank" class="pdf-btn-item">
-                                                                                                                                                                                        <div class="pdf-text-info">
-                                                                                                                                                                                            <span class="pdf-title-doc" data-i18n="p2_m5_t">Estudio Hidrológico - Parte V</span>
-                                                                                                                                                                                            <span class="pdf-desc-doc" data-i18n="p2_m5_d">Balance hídrico y demandas locales</span>
-                                                                                                                                                                                        </div>
-                                                                                                                                                                                    </a>
-                                                                                                                                                                                    <a href="img/Proyectos/Proyecto2/Hidrología6.pdf" target="_blank" class="pdf-btn-item">
-                                                                                                                                                                                        <div class="pdf-text-info">
-                                                                                                                                                                                            <span class="pdf-title-doc" data-i18n="p2_m6_t">Estudio Hidrológico - Parte VI</span>
-                                                                                                                                                                                            <span class="pdf-desc-doc" data-i18n="p2_m6_d">Calidad de las aguas y estado ecológico</span>
-                                                                                                                                                                                        </div>
-                                                                                                                                                                                    </a>
-                                                                                                                                                                                    <a href="img/Proyectos/Proyecto2/Hidrología7.pdf" target="_blank" class="pdf-btn-item">
-                                                                                                                                                                                        <div class="pdf-text-info">
-                                                                                                                                                                                            <span class="pdf-title-doc" data-i18n="p2_m7_t">Estudio Hidrológico - Parte VII</span>
-                                                                                                                                                                                            <span class="pdf-desc-doc" data-i18n="p2_m7_d">Infraestructuras y regulaciones hidráulicas</span>
-                                                                                                                                                                                        </div>
-                                                                                                                                                                                    </a>
-                                                                                                                                                                                    <a href="img/Proyectos/Proyecto2/Hidrología8.pdf" target="_blank" class="pdf-btn-item">
-                                                                                                                                                                                        <div class="pdf-text-info">
-                                                                                                                                                                                            <span class="pdf-title-doc" data-i18n="p2_m8_t">Estudio Hidrológico - Parte VIII</span>
-                                                                                                                                                                                            <span class="pdf-desc-doc" data-i18n="p2_m8_d">Riesgos de inundación y planes preventivos</span>
-                                                                                                                                                                                        </div>
-                                                                                                                                                                                    </a>
-                                                                                                                                                                                    <a href="img/Proyectos/Proyecto2/Hidrología9.pdf" target="_blank" class="pdf-btn-item">
-                                                                                                                                                                                        <div class="pdf-text-info">
-                                                                                                                                                                                            <span class="pdf-title-doc" data-i18n="p2_m9_t">Estudio Hidrológico - Parte IX</span>
-                                                                                                                                                                                            <span class="pdf-desc-doc" data-i18n="p2_m9_d">Conclusiones y propuestas de gestión</span>
-                                                                                                                                                                                        </div>
-                                                                                                                                                                                    </a>
-                                                                                                                                                                                </div>
-                                                                                                                                                                            </div>
-                                                                                                                                                                            <!-- Proyecto 3: Automatización IoT -->
-                                                                                                                                                                            <div class="job">
-                                                                                                                                                                                <div class="job-header">
-                                                                                                                                                                                    <h3 data-i18n="proj3_title">Sistema de Cultivo Automatizado (IoT)</h3>
-                                                                                                                                                                                </div>
-                                                                                                                                                                                <div class="date-place" data-i18n="proj3_sub">Desarrollo de Hardware y Automatización | 2022</div>
-                                                                                                                                                                                <p data-i18n="proj3_desc">Diseño e implementación de un sistema inteligente de cultivo hortícola vertical automatizado. El corazón del proyecto utiliza un microcontrolador ESP32 programado en entorno Arduino IDE, encargado de monitorizar sensores de humedad y activar de forma precisa las microbombas de agua para el riego óptimo de las raíces suspendidas.</p>
-                                                                                                                                                                                <div class="project-gallery">
-                                                                                                                                                                                    <div class="gallery-item"><img src="img/Proyectos/Proyecto3/aeropon.png" alt="Torre Aeropónica Vertical"></div>
-                                                                                                                                                                                    <div class="gallery-item"><img src="img/Proyectos/Proyecto3/arduino.png" alt="Código en Arduino IDE"></div>
-                                                                                                                                                                                    <div class="gallery-item"><img src="img/Proyectos/Proyecto3/esp32.png" alt="Esquema electrónico ESP32 e interfaz"></div>
-                                                                                                                                                                                </div>
-                                                                                                                                                                                <div class="project-status-box">
-                                                                                                                                                                                    <h4 data-i18n="proj3_status_title">⚡ Fase de Desarrollo Actual: Conectividad e Interfaz IoT</h4>
-                                                                                                                                                                                    <p data-i18n="proj3_status_desc">El firmware y la electrónica base ya están completamente operativos. Actualmente me encuentro desarrollando la interfaz web HTML nativa y responsive para dispositivos móviles. Aprovechando las tecnologías de conectividad Wi-Fi y Bluetooth integradas en el ESP32, esta aplicación web permitirá visualizar las gráficas de humedad en tiempo real y gobernar las microbombas a distancia desde cualquier lugar.</p>
-                                                                                                                                                                                </div>
-                                                                                                                                                                            </div>
-                                                                                                                                                                            <!-- Proyecto 4: Energías Renovables -->
-                                                                                                                                                                            <div class="job">
-                                                                                                                                                                                <div class="job-header">
-                                                                                                                                                                                    <h3 data-i18n="proj4_title">Energías Renovables y Eficiencia Energética</h3>
-                                                                                                                                                                                </div>
-                                                                                                                                                                                <div class="date-place" data-i18n="proj4_sub">Estudios Técnicos y Proyectos de Ingeniería | 2010</div>
-                                                                                                                                                                                <p data-i18n="proj4_desc">Proyectos técnicos, dimensionamientos y análisis de optimización en diferentes tecnologías de generation limpia y gestión de la eficiencia energética.</p>
-                                                                                                                                                                                <!-- CUADRÍCULA DE ARCHIVOS PDF DE ENERGÍA -->
-                                                                                                                                                                                <div class="pdf-grid">
-                                                                                                                                                                                    <a href="img/Proyectos/Proyecto5/solar.pdf" target="_blank" class="pdf-btn-item">
-                                                                                                                                                                                        <div class="pdf-text-info">
-                                                                                                                                                                                            <span class="pdf-title-doc" data-i18n="p4_pdf1_t">Energía Solar</span>
-                                                                                                                                                                                            <span class="pdf-desc-doc" data-i18n="p4_pdf1_d">Dimensionamiento y memoria fotovoltaica</span>
-                                                                                                                                                                                        </div>
-                                                                                                                                                                                    </a>
-                                                                                                                                                                                    <a href="img/Proyectos/Proyecto5/eficiencia.pdf" target="_blank" class="pdf-btn-item">
-                                                                                                                                                                                        <div class="pdf-text-info">
-                                                                                                                                                                                            <span class="pdf-title-doc" data-i18n="p4_pdf2_t">Eficiencia Energética</span>
-                                                                                                                                                                                            <span class="pdf-desc-doc" data-i18n="p4_pdf2_d">Auditoría y optimización de consumos</span>
-                                                                                                                                                                                        </div>
-                                                                                                                                                                                    </a>
-                                                                                                                                                                                    <a href="img/Proyectos/Proyecto5/eolica.pdf" target="_blank" class="pdf-btn-item">
-                                                                                                                                                                                        <div class="pdf-text-info">
-                                                                                                                                                                                            <span class="pdf-title-doc" data-i18n="p4_pdf3_t">Energía Eólica</span>
-                                                                                                                                                                                            <span class="pdf-desc-doc" data-i18n="p4_pdf3_d">Análisis de recursos y proyectos eólicos</span>
-                                                                                                                                                                                        </div>
-                                                                                                                                                                                    </a>
-                                                                                                                                                                                    <a href="img/Proyectos/Proyecto5/biomasa.pdf" target="_blank" class="pdf-btn-item">
-                                                                                                                                                                                        <div class="pdf-text-info">
-                                                                                                                                                                                            <span class="pdf-title-doc" data-i18n="p4_pdf4_t">Biomasa</span>
-                                                                                                                                                                                            <span class="pdf-desc-doc" data-i18n="p4_pdf4_d">Estudio técnico de aprovechamiento térmico</span>
-                                                                                                                                                                                        </div>
-                                                                                                                                                                                    </a>
-                                                                                                                                                                                    <a href="img/Proyectos/Proyecto5/minihidraulica.pdf" target="_blank" class="pdf-btn-item">
-                                                                                                                                                                                        <div class="pdf-text-info">
-                                                                                                                                                                                            <span class="pdf-title-doc" data-i18n="p4_pdf5_t">Minihidráulica</span>
-                                                                                                                                                                                            <span class="pdf-desc-doc" data-i18n="p4_pdf5_d">Estudios de salto hidráulico y potencia</span>
-                                                                                                                                                                                        </div>
-                                                                                                                                                                                    </a>
-                                                                                                                                                                                </div>
-                                                                                                                                                                            </div>
-                                                                                                                                                                        </div> <!-- Cierre final de #portfolio -->
-                                                                                                                                                                    </main> <!-- Cierre de .main-col -->
-                                                                                                                                                                    <!-- ==========================================================
-                                                                                                                                                                    14. PIE DE PÁGINA GLOBAL INTERACTIVO (FOOTER)
-                ========================================================== -->
-                                                                                                                                                                    <footer class="main-footer-cv">
-                                                                                                                                                                        <div class="footer-content">
-                                                                                                                                                                            <p>&copy; 2026 Damián García Guerra. <span data-i18n="footer_rights">Todos los derechos reservados.</span></p>
-                                                                                                                                                                            <p class="footer-sub" data-i18n="footer_tech">Diseñado con HTML5, CSS3 y JavaScript interactivo.</p>
-                                                                                                                                                                        </div>
-                                                                                                                                                                    </footer>
-                                                                                                                                                            </div> <!-- Cierre de .container -->
-                                                                                                                                                            <script src="script.js"></script>
-    </body>
+                        </a>
+                        <a href="img/Proyectos/Proyecto2/Hidrología6.pdf" target="_blank" class="pdf-btn-item">
+                            <div class="pdf-text-info">
+                                <span class="pdf-title-doc" data-i18n="p2_m6_t">Estudio Hidrológico - Parte VI</span>
+                                <span class="pdf-desc-doc" data-i18n="p2_m6_d">Calidad de las aguas y estado ecológico</span>
+                            </div>
+                        </a>
+                        <a href="img/Proyectos/Proyecto2/Hidrología7.pdf" target="_blank" class="pdf-btn-item">
+                            <div class="pdf-text-info">
+                                <span class="pdf-title-doc" data-i18n="p2_m7_t">Estudio Hidrológico - Parte VII</span>
+                                <span class="pdf-desc-doc" data-i18n="p2_m7_d">Infraestructuras y regulaciones hidráulicas</span>
+                            </div>
+                        </a>
+                        <a href="img/Proyectos/Proyecto2/Hidrología8.pdf" target="_blank" class="pdf-btn-item">
+                            <div class="pdf-text-info">
+                                <span class="pdf-title-doc" data-i18n="p2_m8_t">Estudio Hidrológico - Parte VIII</span>
+                                <span class="pdf-desc-doc" data-i18n="p2_m8_d">Riesgos de inundación y planes preventivos</span>
+                            </div>
+                        </a>
+                        <a href="img/Proyectos/Proyecto2/Hidrología9.pdf" target="_blank" class="pdf-btn-item">
+                            <div class="pdf-text-info">
+                                <span class="pdf-title-doc" data-i18n="p2_m9_t">Estudio Hidrológico - Parte IX</span>
+                                <span class="pdf-desc-doc" data-i18n="p2_m9_d">Conclusiones y propuestas de gestión</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <!-- Proyecto 3: Automatización IoT -->
+                <div class="job">
+                    <div class="job-header">
+                        <h3 data-i18n="proj3_title">Sistema de Cultivo Automatizado (IoT)</h3>
+                    </div>
+                    <div class="date-place" data-i18n="proj3_sub">Desarrollo de Hardware y Automatización | 2022</div>
+                    <p data-i18n="proj3_desc">Diseño e implementación de un sistema inteligente de cultivo hortícola vertical automatizado. El corazón del proyecto utiliza un microcontrolador ESP32 programado en entorno Arduino IDE, encargado de monitorizar sensores de humedad y activar de forma precisa las microbombas de agua para el riego óptimo de las raíces suspendidas.</p>
+                    <div class="project-gallery">
+                        <div class="gallery-item"><img src="img/Proyectos/Proyecto3/aeropon.png" alt="Torre Aeropónica Vertical"></div>
+                        <div class="gallery-item"><img src="img/Proyectos/Proyecto3/arduino.png" alt="Código en Arduino IDE"></div>
+                        <div class="gallery-item"><img src="img/Proyectos/Proyecto3/esp32.png" alt="Esquema electrónico ESP32 e interfaz"></div>
+                    </div>
+                    <div class="project-status-box">
+                        <h4 data-i18n="proj3_status_title">⚡ Fase de Desarrollo Actual: Conectividad e Interfaz IoT</h4>
+                        <p data-i18n="proj3_status_desc">El firmware y la electrónica base ya están completamente operativos. Actualmente me encuentro desarrollando la interfaz web HTML nativa y responsive para dispositivos móviles. Aprovechando las tecnologías de conectividad Wi-Fi y Bluetooth integradas en el ESP32, esta aplicación web permitirá visualizar las gráficas de humedad en tiempo real y gobernar las microbombas a distancia desde cualquier lugar.</p>
+                    </div>
+                </div>
+                <!-- Proyecto 4: Energías Renovables -->
+                <div class="job">
+                    <div class="job-header">
+                        <h3 data-i18n="proj4_title">Energías Renovables y Eficiencia Energética</h3>
+                    </div>
+                    <div class="date-place" data-i18n="proj4_sub">Estudios Técnicos y Proyectos de Ingeniería | 2010</div>
+                    <p data-i18n="proj4_desc">Proyectos técnicos, dimensionamientos y análisis de optimización en diferentes tecnologías de generation limpia y gestión de la eficiencia energética.</p>
+                    <!-- CUADRÍCULA DE ARCHIVOS PDF DE ENERGÍA -->
+                    <div class="pdf-grid">
+                        <a href="img/Proyectos/Proyecto5/solar.pdf" target="_blank" class="pdf-btn-item">
+                            <div class="pdf-text-info">
+                                <span class="pdf-title-doc" data-i18n="p4_pdf1_t">Energía Solar</span>
+                                <span class="pdf-desc-doc" data-i18n="p4_pdf1_d">Dimensionamiento y memoria fotovoltaica</span>
+                            </div>
+                        </a>
+                        <a href="img/Proyectos/Proyecto5/eficiencia.pdf" target="_blank" class="pdf-btn-item">
+                            <div class="pdf-text-info">
+                                <span class="pdf-title-doc" data-i18n="p4_pdf2_t">Eficiencia Energética</span>
+                                <span class="pdf-desc-doc" data-i18n="p4_pdf2_d">Auditoría y optimización de consumos</span>
+                            </div>
+                        </a>
+                        <a href="img/Proyectos/Proyecto5/eolica.pdf" target="_blank" class="pdf-btn-item">
+                            <div class="pdf-text-info">
+                                <span class="pdf-title-doc" data-i18n="p4_pdf3_t">Energía Eólica</span>
+                                <span class="pdf-desc-doc" data-i18n="p4_pdf3_d">Análisis de recursos y proyectos eólicos</span>
+                            </div>
+                        </a>
+                        <a href="img/Proyectos/Proyecto5/biomasa.pdf" target="_blank" class="pdf-btn-item">
+                            <div class="pdf-text-info">
+                                <span class="pdf-title-doc" data-i18n="p4_pdf4_t">Biomasa</span>
+                                <span class="pdf-desc-doc" data-i18n="p4_pdf4_d">Estudio técnico de aprovechamiento térmico</span>
+                            </div>
+                        </a>
+                        <a href="img/Proyectos/Proyecto5/minihidraulica.pdf" target="_blank" class="pdf-btn-item">
+                            <div class="pdf-text-info">
+                                <span class="pdf-title-doc" data-i18n="p4_pdf5_t">Minihidráulica</span>
+                                <span class="pdf-desc-doc" data-i18n="p4_pdf5_d">Estudios de salto hidráulico y potencia</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div> <!-- Cierre final de #portfolio -->
+        </main> <!-- Cierre de .main-col -->
+    <!-- ==========================================================
+    14. PIE DE PÁGINA GLOBAL INTERACTIVO (FOOTER)
+    ========================================================== -->
+        <footer class="main-footer-cv">
+            <div class="footer-content">
+                <p>&copy; 2026 Damián García Guerra. <span data-i18n="footer_rights">Todos los derechos reservados.</span></p>
+                <p class="footer-sub" data-i18n="footer_tech">Diseñado con HTML5, CSS3 y JavaScript interactivo.</p>
+            </div>
+        </footer>
+    </div> <!-- Cierre de .container -->
+    <script src="script.js"></script>
+</body>
 </html>
-~
+
